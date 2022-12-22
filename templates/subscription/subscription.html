@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/subscription.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #13064e;">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'assets/animo-logo.png' %}" width="200" height="60" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#pricing">Price</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="services">
+        <div class="container">
+            <div class="text-center">
+                <p class="display-4">Our Services</p>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fa fa-cloud service-icon"></i>
+                    <p class="font-weight-bold my-2">Data in Cloud</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ea quod quasi perspiciatis sequi. Ex pariatur, est repellendus dolorum corrupti nostrum odio? </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa fa-phone-square service-icon"></i>
+                    <p class="font-weight-bold my-2">24/7 Support</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ea quod quasi perspiciatis sequi. Ex pariatur, est repellendus dolorum corrupti nostrum odio?</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa fa-laptop service-icon"></i>
+                    <p class="font-weight-bold my-2">Fully Responsive</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ea quod quasi perspiciatis sequi. Ex pariatur, est repellendus dolorum corrupti nostrum odio?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="features">
+        <div class="container">
+            <div class="text-center">
+                <p class="display-4 my-3">Features</p>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <iframe width="450" height="300" src="https://www.youtube.com/embed/9acSxFNESJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    </div>
+                <div class="col-md-7 align">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Facial Recognition Attendance System With ERP Solution</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Quality Control Check With ERP Solution</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Supply Chain Management With ERP Solution</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>All Services within One ERP Solution</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pricing">
+        <div class="container">
+            <div class="text-center">
+                <p class="display-4 text-white">PRICING</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-white mb-3 subscription-card">
+                        <div class="card-header text-center h4">Plan 1</div>
+                        <div class="container">
+                            <div class="card-body text-center">
+                                <h5 class="card-title display-4">$20</h5>
+                                <span>Per Month</span>
+                                <p class="card-text">
+                                    <hr class="bg-white">
+                                    <p>Fully Responsive</p>
+                                    <hr class="bg-white">
+                                    <p>Dedicated Support</p>
+                                    <hr class="bg-white">
+                                    <p> Clean and Modern Design</p>
+                                    <hr class="bg-white">
+                                    <p> Simple and Professional</p>
+                                    <hr class="bg-white">
+                                    <p> 24/7 Support</p>
+                                    <hr class="bg-white">
+                                    <a href="#" class="purchase-btn"><span>PURCHASE NOW</span></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-white mb-3 subscription-card">
+                        <div class="card-header text-center h4">Plan 2</div>
+                        <div class="container">
+                            <div class="card-body text-center">
+                                <h5 class="card-title display-4">$25</h5>
+                                <span>Per Month</span>
+                                <p class="card-text">
+                                    <hr class="bg-white">
+                                    <p>Fully Responsive</p>
+                                    <hr class="bg-white">
+                                    <p>Dedicated Support</p>
+                                    <hr class="bg-white">
+                                    <p> Clean and Modern Design</p>
+                                    <hr class="bg-white">
+                                    <p> Simple and Professional</p>
+                                    <hr class="bg-white">
+                                    <p> 24/7 Support</p>
+                                    <hr class="bg-white">
+                                    <a href="#" class="purchase-btn"><span>PURCHASE NOW</span></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-white mb-3 subscription-card">
+                        <div class="card-header text-center h4">Plan 3</div>
+                        <div class="container">
+                            <div class="card-body text-center">
+                                <h5 class="card-title display-4">$50</h5>
+                                <span>Per Month</span>
+                                <p class="card-text">
+                                    <hr class="bg-white">
+                                    <p>Fully Responsive</p>
+                                    <hr class="bg-white">
+                                    <p>Dedicated Support</p>
+                                    <hr class="bg-white">
+                                    <p> Clean and Modern Design</p>
+                                    <hr class="bg-white">
+                                    <p> Simple and Professional</p>
+                                    <hr class="bg-white">
+                                    <p> 24/7 Support</p>
+                                    <hr class="bg-white">
+                                    <a href="#" class="purchase-btn"><span>PURCHASE NOW</span></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card contact-card">
+                        <div class="text-center">
+                            <p class="display-4">Contact Form</p>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="post" class="text-center align">
+                                {% csrf_token %}
+                                <input type="text" name="" id="" placeholder="Name" class="form-control my-3">
+                                <input type="text" name="" id="" placeholder="Email" class="form-control my-3">
+                                <input type="text" name="" id="" placeholder="Subject" class="form-control my-3">
+                                <input type="text" name="" id="" placeholder="Message" class="form-control my-3">
+                                <input type="submit" class="btn btn-outline-secondary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card contact-card">
+                        <div class="card-body">
+                            <div class="d-flex flex-row ">
+                                <i class="fa fa-map-marker mt-1 text-danger"></i>
+                                <div class="mx-3">
+                                    <p class="font-weight-bold">Our Location</p>
+                                    <p>Gareeb-e-Nawaz Ave House-12, Uttara, Dhaka 1230</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row ">
+                                <i class="fa fa-phone text-success mt-1"></i>
+                                <div class="mx-3">
+                                    <p class="font-weight-bold">Call Us On</p>
+                                    <p>+8801857-670998</p>
+                                    <p>+8801739303737</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row ">
+                                <i class="fa fa-envelope-o text-info mt-1"></i>
+                                <div class="mx-3">
+                                    <p class="font-weight-bold"> Send Your Message</p>
+                                    <p>animo.ai@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row ">
+                                <i class="fa fa-clock-o mt-1"></i>
+                                <div class="mx-3">
+                                    <p class="font-weight-bold">Our Working Hours</p>
+                                    <p>Sunday-Thursday 10.00AM to 6.00PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

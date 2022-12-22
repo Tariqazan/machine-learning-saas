@@ -1,0 +1,127 @@
+.form-image .l-image {
+    background-image: url("../images/logo/logo@2x.png");
+    background-color: transparent;
+}
+
+.form-form .form-container h1 {
+    color: #bfc9d4;
+}
+
+.login {}
+
+.login a {}
+
+.login a img {
+    width: 50%;
+    margin: 0px 0px 5px 0px;
+}
+
+.form-form .form-form-wrap p.signup-link a {
+    color: cyan;
+    border: none;
+    transition: 0.4ms;
+}
+
+.form-form .form-form-wrap p.signup-link a:hover {
+    color: #5189b9;
+}
+
+.form-form .form-form-wrap form .field-wrapper svg {
+    color: cyan;
+}
+
+.switch.s-primary .slider:before {
+    background-color: cyan;
+}
+
+.switch.s-primary input:checked+.slider {
+    background-color: cyan;
+}
+
+.btn-primary {
+    background-color: cyan !important;
+    border-color: cyan;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    color: #fff !important;
+    background-color: cyan;
+    box-shadow: none;
+    border-color: cyan;
+}
+
+.new-control.new-checkbox.checkbox-outline-primary>input:checked~span.new-control-indicator {
+    border: 2px solid cyan;
+}
+
+.new-control.new-checkbox.checkbox-outline-primary>input:checked~span.new-control-indicator:after {
+    border-color: cyan;
+}
+
+.form-form .terms-conditions {
+    margin-top: 90px;
+}
+
+.form-form .terms-conditions a {
+    color: cyan;
+}
+
+.logo-big {}
+
+.logo-big img {
+    width: 16%;
+    position: absolute;
+    bottom: 45%;
+    right: 10%;
+}
+
+.logo-big h2 {
+    position: absolute;
+    bottom: 40%;
+    right: 10%;
+    font-size: 25px;
+    color: white;
+}
+
+.form-form .form-form-wrap form .field-wrapper input:focus {
+    border-bottom: 1px solid cyan;
+}
+
+.form-form .form-form-wrap form .field-wrapper input {
+    color: cyan;
+}
+
+::selection {
+    color: white;
+    background: rgba(0, 255, 255, 0.486);
+}
+
+#myVideo {
+    position: fixed;
+    z-index: -6;
+}
+
+.vid-overlay {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    background: #0000008a;
+    z-index: -5;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .logo-big img {
+        width: 16%;
+        position: absolute;
+        bottom: 15%;
+        right: 10%;
+    }
+    .logo-big h2 {
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        font-size: 25px;
+        color: white;
+    }
+}

@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .dt-button {
+        background-color: #5584AC !important;
+        color: white !important;
+    }
+
+    .light-grey {
+        color: #a2a3b7;
+    }
+
+    @media only screen and (max-width: 400px) {
+        .card-header {
+            display: block !important;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <!-- team weekly schedule -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-center">
+                        <h3>Team Schedule Weekly</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10" id="team_schedule_weekly">
+                            <thead>
+                                <th>#</th>
+                                <th>Team Head</th>
+                                <th>Total Members</th>
+                                <th>Task</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>Andrew Russel</td>
+                                        <td>5</td>
+                                        <td>Engine Room Maintenance</td>
+                                        <td>12/12/2021</td>
+                                        <td>19/12/2021</td>
+                                        <td>
+                                            <span class="custom-badge status-pink mb-1">On Going</span> <br>
+                                            <span class="custom-badge status-blue mb-1">On Hold</span> <br>
+                                            <span class="custom-badge status-green">Completed</span>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="custom-badge status-orange mb-1">Details</a> <br>
+                                            <select name="" id="">
+                                                <option value="">---------</option>
+                                                <option value="">Completed</option>
+                                                <option value="">On Hold</option>
+                                                <option value="">On Going</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- indivudual day wise schedule -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            From: 12 , December, 2021
+                        </div>
+
+                        <div>
+                            To: 19 , December, 2021
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3>Individual Day Work</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-checkable mt-10" id="individual_weekly_daywise_schedule">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                    <tr>
+                                        <td>
+                                            <img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt="">
+                                        </td>
+                                        <td>John Doe</td>
+                                        <td> Salary Sheet </td>
+                                        <td> Database Test </td>
+                                        <td> Accounts Audit </td>
+                                        <td> Quality Check </td>
+                                        <td> Deployment </td>
+                                        <td> Weekly Report</td>
+                                        <td>
+                                            <a href="#">
+                                                <span class="custom-badge status-purple">Details</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

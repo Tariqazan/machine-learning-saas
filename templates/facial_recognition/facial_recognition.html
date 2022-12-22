@@ -1,0 +1,106 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="container">
+    <div class="card" style="height: 50px;margin-top: -50px;">
+        <div class="card-body">
+            <h1 class="text-center" style="font-size: 25px;margin-top: -20px; font-weight: bolder">Facial Recognition
+            </h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <div class="card">
+                <!-- <video id="myVideo" src="{%static 'assets/video/facial_recognition.avi (1).mp4' %}" style="height: 522px;" controls></video> -->
+            </div>
+        </div>
+        <div class="col-md-4" style="height: 100%;">
+            <div class="card card-custom card-stretch" id="kt_page_stretched_card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3 class="card-label">Detected Data</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-scroll">
+                        <div class="row" id="detection1" style="visibility: hidden;">
+                            <div class="col-md-4">
+                                <i class="icon-xl far fa-user-circle"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>Tariqul Islam</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="icon-xl fas fa-id-badge ml-1"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>79254</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row" id="detection2" style="visibility: hidden;">
+                            <div class="col-md-4">
+                                <i class="icon-xl far fa-user-circle"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>Atikur Rahman</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="icon-xl fas fa-id-badge ml-1"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>42310</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row" id="detection3" style="visibility: hidden;">
+                            <div class="col-md-4">
+                                <i class="icon-xl far fa-user-circle"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>Zahiduzzaman</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="icon-xl fas fa-id-badge ml-1"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>87764</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row" id="detection4" style="visibility: hidden;">
+                            <div class="col-md-4">
+                                <i class="icon-xl far fa-user-circle"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>Arif Onoy</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="icon-xl fas fa-id-badge ml-1"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <p>25601</p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} {% block js %}
+<script>
+    setTimeout(function() {
+        document.getElementById("detection1").style.visibility = "visible";
+    }, 3000);
+    setTimeout(function() {
+        document.getElementById("detection2").style.visibility = "visible";
+    }, 6000);
+    setTimeout(function() {
+        document.getElementById("detection3").style.visibility = "visible";
+    }, 9000);
+    setTimeout(function() {
+        document.getElementById("detection4").style.visibility = "visible";
+    }, 15000);
+</script>
+{% endblock %}

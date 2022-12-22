@@ -1,0 +1,391 @@
+{% extends '../base.html' %} {% load static %} {% block css %}
+<style>
+    .card {
+        box-shadow: 0 0 20px rgba(128, 128, 128, 0.616);
+        min-height: 200px;
+        margin: 20px 0;
+    }
+    
+    tbody td {
+        vertical-align: text-top !important;
+    }
+</style>
+{% endblock %} {% block header %}
+<h2 style="position: absolute; left: 40%;" class="text-center font-weight-bolder py-2">Fleet Management</h2>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <!--begin::ody-->
+                <div class="card-body">
+                    <span class="svg-icon svg-icon-2x svg-icon-danger">
+                        <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group.svg-->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                <path d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+                                <path d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
+                            </g>
+                        </svg>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{drivers}}</span>
+                    <span class="font-weight-bold text-muted font-size-sm">Total Drivers</span>
+                </div>
+                <!--end::Body-->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <!--begin::ody-->
+                <div class="card-body my-4">
+                    <a href="#" class="card-title font-weight-bolder text-info font-size-h6 mb-4 text-hover-state-dark d-block">Active Vehicles</a>
+                    <div class="font-weight-bold text-muted font-size-sm">
+                        <span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">{{active_vehicles}}</span></div>
+                    <div class="progress progress-xs mt-7 bg-info-o-60">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{active_vehicles}}%;" aria-valuenow="{{active_vehicles}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <!--end::Body-->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <!--begin::Body-->
+                <div class="card-body">
+                    <span class="svg-icon svg-icon-2x svg-icon-info">
+                        <!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"></rect>
+                                <rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5"></rect>
+                                <rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+                                <rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+                                <rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+                            </g>
+                        </svg>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{mileage}} per 100 km</span>
+                    <span class="font-weight-bold text-muted font-size-sm">Average Mileage</span>
+                </div>
+                <!--end::Body-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3 class="card-label">Monthly Use of Fuel</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!--begin::Chart-->
+                    <div id="monthly_use_of_fuel"></div>
+                    <!--end::Chart-->
+                </div>
+            </div>
+            <!--end::Card-->
+        </div>
+
+        <div class="col-md-6">
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3 class="card-label">Monthly Cost of Fuel</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!--begin::Chart-->
+                    <div id="monthly_cost_of_fuel"></div>
+                    <!--end::Chart-->
+                </div>
+            </div>
+            <!--end::Card-->
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h3 class="card-label">Work Management</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive" style="overflow: auto; height: 10em; width: 100%;" id="itemtab">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Trip Start</th>
+                            <th>Customer</th>
+                            <th>Driver</th>
+                            <th>Vehicle</th>
+                            <th>Destination</th>
+                            <th>Distance</th>
+                            <th>Fuel</th>
+                            <th>Cost</th>
+                            <th>Overtime</th>
+                            <th>Status</th>
+                            <th>Trip End</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for i in booking %}
+                        <tr>
+                            <td>{{i.trip_start}}</td>
+                            <td>{{i.customer}}</td>
+                            <td>{{i.driver}}</td>
+                            <td>{{i.vehicle}}</td>
+                            <td>{{i.destination}}</td>
+                            <td>{{i.distance}}</td>
+                            <td>{{i.fuel}}</td>
+                            <td>{{i.cost}}</td>
+                            <td id="{{i.id}}" style="width: 15%; padding: 0 !important;vertical-align: text-top !important; text-align: center;border: 1px solid;" data-toggle="tooltip" title="Click here to add overtime" onclick="save_overtime(this.id)">{{i.overtime}}</td>
+                            <td> {% if i.status is False %}
+                                <select name="" id="status{{i.id}}" onchange="status(this.id,{{i.id}})" class="form-control">
+                                    <option value="Returned">Returned</option>
+                                    <option value="On The Way" selected disabled>On The Way</option>
+                                </select> {% else %} <span class="badge badge-success">Returned</span> {% endif %}
+
+                            </td>
+                            <td>{{i.trip_end}}</td>
+                            <td class="d-flex">
+                                <a href="{% url 'edit_booking' i.id %}"><i class="icon-xl far fa-edit mx-2"></i></a>
+                                <a href="{% url 'booking_delete' i.id %}"><i class="icon-xl far fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card p-5">
+                <div class="card-header">
+                    <h3>Vehicle Status</h3>
+                </div>
+                <table id="example1" class="display" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in vehicle_status %}
+                        <tr>
+                            <td>{{i.vehicle_no}}</td>
+                            {% if i.status is False %}
+                            <td>Not Active</td>
+                            {% else %}
+                            <td>Active</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script>
+    var jancost = JSON.parse("{{jan_cost|escapejs}}").cost__sum
+    var febcost = JSON.parse("{{feb_cost|escapejs}}").cost__sum
+    var marcost = JSON.parse("{{mar_cost|escapejs}}").cost__sum
+    var aprcost = JSON.parse("{{apr_cost|escapejs}}").cost__sum
+    var maycost = JSON.parse("{{may_cost|escapejs}}").cost__sum
+    var junecost = JSON.parse("{{june_cost|escapejs}}").cost__sum
+    var julycost = JSON.parse("{{july_cost|escapejs}}").cost__sum
+    var augcost = JSON.parse("{{aug_cost|escapejs}}").cost__sum
+    var sepcost = JSON.parse("{{sep_cost|escapejs}}").cost__sum
+    var octcost = JSON.parse("{{oct_cost|escapejs}}").cost__sum
+    var novcost = JSON.parse("{{nov_cost|escapejs}}").cost__sum
+    var deccost = JSON.parse("{{dec_cost|escapejs}}").cost__sum
+
+    var options = {
+        series: [{
+            name: 'Total Cost',
+            data: [jancost, febcost, marcost, aprcost, maycost, junecost, julycost, augcost, octcost, novcost, deccost]
+        }],
+        chart: {
+            type: 'bar',
+            height: 350
+        },
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '55%',
+                endingShape: 'rounded'
+            },
+        },
+        dataLabels: {
+            enabled: false
+        },
+
+        title: {
+            text: 'Fuel Cost Per Month',
+            align: 'left'
+        },
+        stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+        },
+        xaxis: {
+            categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        },
+        yaxis: {
+            title: {
+                text: ' (thousands)'
+            }
+        },
+        fill: {
+            opacity: 1
+        },
+        tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val + " thousands"
+                }
+            }
+        },
+        colors: [success]
+    };
+
+    var chart = new ApexCharts(document.querySelector("#monthly_cost_of_fuel"), options);
+    chart.render();
+</script>
+<script>
+    var janfuel = JSON.parse("{{jan_fuel|escapejs}}").fuel__sum
+    var febfuel = JSON.parse("{{feb_fuel|escapejs}}").fuel__sum
+    var marfuel = JSON.parse("{{mar_fuel|escapejs}}").fuel__sum
+    var aprfuel = JSON.parse("{{apr_fuel|escapejs}}").fuel__sum
+    var mayfuel = JSON.parse("{{may_fuel|escapejs}}").fuel__sum
+    var junefuel = JSON.parse("{{june_fuel|escapejs}}").fuel__sum
+    var julyfuel = JSON.parse("{{july_fuel|escapejs}}").fuel__sum
+    var augfuel = JSON.parse("{{aug_fuel|escapejs}}").fuel__sum
+    var sepfuel = JSON.parse("{{sep_fuel|escapejs}}").fuel__sum
+    var octfuel = JSON.parse("{{oct_fuel|escapejs}}").fuel__sum
+    var novfuel = JSON.parse("{{nov_fuel|escapejs}}").fuel__sum
+    var decfuel = JSON.parse("{{dec_fuel|escapejs}}").fuel__sum
+
+    var options = {
+        series: [{
+            name: "Fuel",
+            data: [janfuel, febfuel, marfuel, aprfuel, mayfuel, junefuel, julyfuel, augfuel, sepfuel, octfuel, novfuel, decfuel]
+        }],
+        chart: {
+            height: 350,
+            type: 'area',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Fuel Usage Per Month',
+            align: 'left'
+        },
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            },
+        },
+        tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val + " ltr"
+                }
+            }
+        },
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#monthly_use_of_fuel"), options);
+    chart.render();
+</script>
+<script>
+    function save_overtime(id) {
+        var value = $("#" + id).html()
+        $("#" + id).replaceWith('<td id=' + id + '><input type="text" value=' + value + ' id="overtime' + id + '"><input type="submit" onclick="save_orderdata(' + id + ')" class="btn btn-outline-success"></td>')
+    }
+</script>
+<script>
+    function save_orderdata(id) {
+        var action = confirm("Are you sure?")
+        var value = $("#overtime" + id).val()
+        if (action == true) {
+            $.ajax({
+                url: '{% url "overtime" %}',
+                method: 'post',
+                data: {
+                    'id': id,
+                    'value': value
+                },
+                dataType: 'json',
+                success: function() {
+                    $("#" + id).replaceWith('<td id=' + id + '  style="width: 15%; padding: 0 !important;vertical-align: text-top !important; text-align: center;" onclick="save_overtime(this.id)">' + value + '</td>')
+                }
+            })
+        } else {
+            $("#" + id).replaceWith('<td id=' + id + '  style="width: 15%; padding: 0 !important;vertical-align: text-top !important; text-align: center;"onclick="save_overtime(this.id)">' + value + '</td>')
+        }
+    }
+</script>
+<script>
+    function status(status_id, id) {
+        var action = confirm("Are you sure to change the status?")
+        if (action == true) {
+
+            var value = $('#' + status_id).val()
+            $.ajax({
+                url: '{% url "status" %}',
+                method: 'post',
+                data: {
+                    'id': id,
+                    'value': value
+                },
+                dataType: 'json',
+                success: function() {
+                    window.location = '/fleet/management/'
+                }
+            })
+            var value = $('#' + status_id).val()
+            $.ajax({
+                url: '{% url "status" %}',
+                method: 'post',
+                data: {
+                    'id': id,
+                    'value': value
+                },
+                dataType: 'json',
+                success: function() {
+                    window.location = '/fleet/management/'
+                }
+            })
+        }
+    }
+</script>
+<script>
+    $(document).ready(function() {
+        $('#example1').DataTable();
+    })
+</script>
+{% endblock %}

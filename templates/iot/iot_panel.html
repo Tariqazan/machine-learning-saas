@@ -1,0 +1,92 @@
+{% extends '../base.html' %} {% load static %} {% block css %} {% endblock %} {% block content %}
+<!--begin::Container-->
+<div class="container">
+    <!-- <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card">
+                <p>To insert data because there is no industry data right now</p>
+                <input type="number" name="" id="temparature_val" placeholder="temparature">
+                <input type="number" name="" id="humidity_val" placeholder="humidity">
+                <button id="add" class="btn btn-outline-info">Add</button>
+            </div>
+        </div>
+    </div> -->
+    <div id="user">
+        <div class="card">
+            <div class="card-header">
+                <p class="h2 text-center">Users</p>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <th>User Name</th>
+                        <th>Device Name</th>
+                        <th>Role</th>
+                        <th>ID</th>
+                        <th>Location</th>
+                    </thead>
+                    <tbody>
+                        {% for i in user %}
+                        <tr>
+                            <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                            <td>{{i.device.model}}</td>
+                            <td>{{i.user.role}}</td>
+                            <td>{{i.user.id}}</td>
+                            <td>{{i.user.location}}</td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="" id="charts">
+        <div class="card-header">
+            <p class="h2 text-center">Industrial IoT</p>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <div id="temparature" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div id="humidity" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <div id="weight" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div id="pressure" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script>
+    $("#add").click(function(e) {
+        e.preventDefault();
+        var temp = $("#temparature_val").val()
+        var hmdt = $("#humidity_val").val()
+        $.ajax({
+            url: "{% url 'AddIndustryData' %}",
+            data: {
+                'temp': temp,
+                'hmdt': hmdt
+            },
+            success: function(data) {
+                alert('success')
+            }
+        })
+    })
+</script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="{% static 'assets/js/pages/features/charts/charts/iot_dashboard.js' %}"></script>
+{% endblock %}

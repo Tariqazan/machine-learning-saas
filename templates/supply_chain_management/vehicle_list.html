@@ -1,0 +1,43 @@
+{% extends '../base.html' %} {% load static %} {% block css %} {% endblock %} {% block header %} {% endblock %} {% block content %}
+<div class="container">
+    <div class="card p-4">
+        <div class="table-responsive">
+            <table id="example" class="display" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Department</th>
+                        <th>Vehicle No</th>
+                        <th>Vehicle Model</th>
+                        <th>Registration Number</th>
+                        <th>Chasis Number</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for i in object_list %}
+                    <tr>
+                        <td>{{i.department}}</td>
+                        <td>{{i.vehicle_no}}</td>
+                        <td>{{i.vehicle_model}}</td>
+                        <td>{{i.register_number}}</td>
+                        <td>{{i.chasis_no}}</td>
+                        {% if i.status == False %}
+                        <td>Not Active</td>
+                        {% else %}
+                        <td>Active</td>
+                        {% endif %}
+                        <td class="d-flex">
+                            <a href="{% url 'edit_vehicle' i.id %}"><i class="icon-xl far fa-edit mx-2"></i></a>
+                            <a href="{% url 'vehicle_delete' i.id %}"><i class="icon-xl far fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %} {% endblock %}

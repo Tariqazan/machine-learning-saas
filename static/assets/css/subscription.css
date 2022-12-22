@@ -1,0 +1,121 @@
+* {
+    scroll-behavior: smooth;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+#contact {
+    background: url('../images/map.png');
+    padding: 30px 0;
+}
+
+#services {
+    padding: 50px 0;
+}
+
+#features {
+    padding: 30px 0;
+    background-color: #f1f1f1;
+}
+
+#pricing {
+    background: linear-gradient(150deg, #13064e 50%, #000);
+    padding: 40px 0;
+}
+
+.align {
+    align-self: center;
+}
+
+.service-icon {
+    font-size: 30px !important;
+    border: 1px solid black;
+    padding: 5px 10px;
+    color: #13064e;
+    transition: 0.5s ease-in-out;
+}
+
+.service-icon:hover {
+    background-color: #13064e;
+    color: #FFF;
+}
+
+.subscription-card {
+    box-shadow: 0 0 10px 0 rgb(22, 19, 19);
+    color: white;
+    background-color: transparent;
+    min-height: 400px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.subscription-card:hover {
+    box-shadow: 0 0 10px 0 rgb(253, 253, 253);
+}
+
+
+/* .subscription-card:hover {
+    transform-origin: 0% 50%;
+    transform: scale(0.75) rotateY( 55deg);
+    box-shadow: 0 0 10px 0 rgb(253, 253, 253);
+    background-color: rgb(221, 217, 217);
+    color: black;
+} */
+
+
+/* .subscription-card:hover .purchase-btn {
+    border: 1px solid black;
+    color: #000;
+} */
+
+.purchase-btn {
+    border-radius: 4px;
+    border: 1px solid whitesmoke;
+    background-color: transparent;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.purchase-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.purchase-btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.purchase-btn:hover {
+    border: 1px solid #000;
+    color: #000 !important;
+    background-color: #00FFFF;
+}
+
+.purchase-btn:hover span {
+    padding-right: 25px;
+}
+
+.purchase-btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.contact-card {
+    box-shadow: 0 0 20px rgba(128, 128, 128, 0.486);
+    align-self: center;
+    min-height: 420px;
+}

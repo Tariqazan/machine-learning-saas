@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-8">
+        <h3 class="text-center">Update Employee Payroll</h3>
+        <br>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <br>
+        <input type="Submit" name="Update" value="Update" class="btn btn-primary">
+      </form>
+      </div>
+      <div class="col-md-2">
+
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

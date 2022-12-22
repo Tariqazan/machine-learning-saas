@@ -1,0 +1,227 @@
+{% extends '../base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css"> {% endblock %} {% block header %}
+<h2 style="position: absolute; left: 40%;" class="text-center font-weight-bolder py-2">Add Driver</h2>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="card py-4 mb-3">
+        <form class="form" id="kt_form_1" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12">Name *</label>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <input type="text" class="form-control" name="name" placeholder="Enter name" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12">Salary *</label>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <input type="number" class="form-control" name="salary" placeholder="Enter salary" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12">Phone Number *</label>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                    <i class="icon-xl fas fa-mobile-alt"></i>
+                   </span>
+                        </div>
+                        <input type="text" class="form-control" name="number" placeholder="Enter Number" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12">Driver Picture</label>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-xl fas fa-user-friends"></i></span>
+                        </div>
+                        <input type="file" class="form-control" name="driver_pic" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12">Driving Licence *</label>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                    <i class="icon-xl far fa-address-card"></i>
+                </span>
+                        </div>
+                        <input type="file" class="form-control" name="driving_licence" placeholder="Enter licence number" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12">nid *</label>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-xl far fa-address-book"></i></span>
+                        </div>
+                        <input type="file" class="form-control" name="nid" placeholder="Enter NID" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="separator separator-dashed my-10"></div>
+
+            <div class="row">
+                <div class="col-lg-9 ml-lg-auto">
+                    <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
+                    <button type="{% url 'supply_chain_management' %}" class="btn btn-light-primary font-weight-bold">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script>
+    FormValidation.formValidation(
+        document.getElementById('kt_form_1'), {
+            fields: {
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Email is required'
+                        },
+                        emailAddress: {
+                            message: 'The value is not a valid email address'
+                        }
+                    }
+                },
+
+                url: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Website URL is required'
+                        },
+                        uri: {
+                            message: 'The website address is not valid'
+                        }
+                    }
+                },
+
+                digits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Digits is required'
+                        },
+                        digits: {
+                            message: 'The velue is not a valid digits'
+                        }
+                    }
+                },
+
+                creditcard: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Credit card number is required'
+                        },
+                        creditCard: {
+                            message: 'The credit card number is not valid'
+                        }
+                    }
+                },
+
+                phone: {
+                    validators: {
+                        notEmpty: {
+                            message: 'US phone number is required'
+                        },
+                        phone: {
+                            country: 'US',
+                            message: 'The value is not a valid US phone number'
+                        }
+                    }
+                },
+
+                option: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please select an option'
+                        }
+                    }
+                },
+
+                options: {
+                    validators: {
+                        choice: {
+                            min: 2,
+                            max: 5,
+                            message: 'Please select at least 2 and maximum 5 options'
+                        }
+                    }
+                },
+
+                memo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter memo text'
+                        },
+                        stringLength: {
+                            min: 50,
+                            max: 100,
+                            message: 'Please enter a menu within text length range 50 and 100'
+                        }
+                    }
+                },
+
+                checkbox: {
+                    validators: {
+                        choice: {
+                            min: 1,
+                            message: 'Please kindly check this'
+                        }
+                    }
+                },
+
+                checkboxes: {
+                    validators: {
+                        choice: {
+                            min: 2,
+                            max: 5,
+                            message: 'Please check at least 1 and maximum 2 options'
+                        }
+                    }
+                },
+
+                radios: {
+                    validators: {
+                        choice: {
+                            min: 1,
+                            message: 'Please kindly check this'
+                        }
+                    }
+                },
+            },
+
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                submitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            }
+        }
+    );
+</script>
+<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+{% endblock %}
+
+<!-- <form action="/image/upload/" method="POST" class="dropzone mt-3">
+            {%csrf_token%}
+            <input type="text" name="name" id="">
+            <input type="text" name="number" id="">
+            <div class="fallback">
+                <input name="file" type="file" />
+            </div>
+        </form> -->

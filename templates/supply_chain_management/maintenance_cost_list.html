@@ -1,0 +1,42 @@
+{% extends '../base.html' %} {% load static %} {% block css %} {% endblock %} {% block header %} {% endblock %} {% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table id="example" class="display" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>Item</th>
+                            <th>Amount</th>
+                            <th>Referance</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for i in object_list %}
+                        <tr>
+                            <td>{{i.vehicle}}</td>
+                            <td>{{i.item}}</td>
+                            <td>{{i.amount}}</td>
+                            {% if i.reference %}
+                            <td><a href="/media/{{i.reference}}">{{i.reference}}</a></td>
+                            {% else %}
+                            <td>none</td>
+                            {% endif %}
+                            <td class="d-flex">
+                                <a href="{% url 'edit_maintenance' i.id %}"><i class="icon-xl far fa-edit mx-2"></i></a>
+                                <a href="{% url 'maintenance_delete' i.id %}"><i class="icon-xl far fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %} {% endblock %}

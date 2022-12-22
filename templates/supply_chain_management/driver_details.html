@@ -1,0 +1,70 @@
+{% extends '../base.html' %} {% load static %} {% block css %}
+<style>
+    .card {
+        box-shadow: 0 0 20px rgba(128, 128, 128, 0.623);
+    }
+</style>
+{% endblock %} {% block header %}
+<h2 style="position: absolute; left: 40%;" class="text-center font-weight-bolder py-2">Driver Details</h2>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="card">
+        <div class="bg-diagonal bg-diagonal-primary bg-diagonal-r-light rounded h-150px">
+            <a href="{% url 'driver_booking_detail' object.id %}" class="btn btn-info" style="position: absolute; right: 20px; top: 30px; z-index: 11;">Generate PDF</a>
+            <p class="h4" style="position: absolute; left: 20px; top: 30px; color: white;">Driver Details</p>
+        </div>
+        <div class="card-body p-2 mb-3">
+            <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
+                <div class="col-md-6 text-center">
+                    <p class="h4">{{object.name}}</p>
+                    <img src="{{object.driver_pic.url}}" alt="" class="img-thumbnail" style="width: 50%;">
+                </div>
+                <div class="col-md-6 text-center">
+                    <p class="h3">Invoice</p>
+                    <p><span style="font-weight: 800;">Salary</span>: {{salary}}</p>
+                    <p><span style="font-weight: 800;">Month</span>: {{Month}}</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="h4">Driver Work Details</p>
+            </div>
+            <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
+                <div class="col-md-9">
+                    <div class="table-responsive">
+                        <table id="example" class="display nowrap" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="pl-0 font-weight-bold text-muted text-uppercase">Destination</th>
+                                    <th class="text-right font-weight-bold text-muted text-uppercase">Distance</th>
+                                    <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">Fuel</th>
+                                    <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">Cost</th>
+                                    <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">Vehicle</th>
+                                    <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in booking_list %}
+                                <tr class="font-weight-boldest">
+                                    <td class="pl-0 pt-7">{{i.destination}}</td>
+                                    <td class="text-right pt-7">{{i.distance}}</td>
+                                    <td class="pr-0 pt-7 text-right">{{i.fuel}} ltr</td>
+                                    <td class="pr-0 pt-7 text-right">{{i.cost}} tk</td>
+                                    <td class="pr-0 pt-7 text-right">{{i.vehicle.vehicle_no}}</td>
+                                    <td class="pr-0 pt-7 text-right">{{i.trip_start}}</td>
+                                </tr>
+                                {% endfor %}
+                                <tr class="font-weight-boldest">
+                                    <td class="pl-0 pt-7">Total</td>
+                                    <td class="text-right pt-7"><strong>{{total_distance.distance__sum}} km</strong></td>
+                                    <td class="text-danger pr-0 pt-7 text-right"><strong>{{total.fuel__sum}} litre</strong></td>
+                                    <td class="text-danger pr-0 pt-7 text-right"><strong>{{total_cost.cost__sum}} tk</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

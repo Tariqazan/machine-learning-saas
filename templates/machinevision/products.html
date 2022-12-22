@@ -1,0 +1,248 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/video-panel.css' %}"> {% endblock css %} {% block content %}
+<div class="container py-3">
+    <!-- Card Start -->
+    <div class="card">
+        <div class="card-header">
+            <select class="custom-select">
+                <option selected>Choose...</option>
+                <option value="product_1">Product 1</option>
+                <option value="product_2">Product 2</option>
+                <option value="product_3">Product 3</option>
+                <option value="product_4">Product 4</option>
+                <option value="product_5">Product 5</option>
+                <option value="product_6">Product 6</option>
+                <option value="product_7">Product 7</option>
+            </select>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <iframe class="embed-responsive-item" src="{% static 'assets/video/output_vid.mp4' %}" allowfullscreen></iframe>
+                    </div> -->
+                    <img style="-webkit-user-select: none; height: 100%; width: 100%;" src="http://127.0.0.1:5000/video_feed">
+                </div>
+                <div class="col-md-4">
+                    <canvas id="product_1" width="400" height="500"></canvas>
+                    <canvas id="product_2" width="400" height="500"></canvas>
+                    <canvas id="product_3" width="400" height="500"></canvas>
+                    <canvas id="product_4" width="400" height="500"></canvas>
+                    <canvas id="product_5" width="400" height="500"></canvas>
+                    <canvas id="product_6" width="400" height="500"></canvas>
+                    <canvas id="product_7" width="400" height="500"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %} {% block js %}
+
+    <script>
+        $(document).ready(function() {
+            $.each(['product_1', 'product_2', 'product_3', 'product_4', 'product_5', 'product_6', 'product_7'], function(index, value) {
+                $("#" + value).hide();
+            });
+            $("select.custom-select").change(function() {
+                var selected_category = $(this).children("option:selected").val();
+                if (selected_category) {
+                    $.each(['product_1', 'product_2', 'product_3', 'product_4', 'product_5', 'product_6', 'product_7'], function(index, value) {
+                        $("#" + value).hide();
+                    });
+                    $("#" + selected_category).fadeIn(2000);
+                    $("#" + selected_category).show();
+                }
+            });
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('product_1').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Count'],
+                datasets: [{
+                    label: 'product 1',
+                    data: [12],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('product_2').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Count'],
+                datasets: [{
+                    label: 'Product 2',
+                    data: [12],
+                    backgroundColor: [
+                        'rgba(25, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(25, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('product_3').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Count'],
+                datasets: [{
+                    label: 'Product 3',
+                    data: [12],
+                    backgroundColor: [
+                        'rgba(255, 221, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 221, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('product_4').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Count'],
+                datasets: [{
+                    label: 'Product 4',
+                    data: [12],
+                    backgroundColor: [
+                        'rgba(25, 99, 12, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(25, 99, 12, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('product_5').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Count'],
+                datasets: [{
+                    label: 'Product 5',
+                    data: [12],
+                    backgroundColor: [
+                        'rgba(255, 129, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 129, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('product_6').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Count'],
+                datasets: [{
+                    label: 'Product 6',
+                    data: [12],
+                    backgroundColor: [
+                        'rgba(215, 129, 125, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(215, 129, 125, 0.2)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('product_7').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Product Count'],
+                datasets: [{
+                    label: 'Product 7',
+                    data: [12],
+                    backgroundColor: [
+                        'rgba(215, 129, 125, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(215, 129, 125, 0.2)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    {% endblock %}

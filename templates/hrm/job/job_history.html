@@ -1,0 +1,377 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .dt-button {
+        background-color: #5584AC !important;
+        color: white !important;
+    }
+
+    .light-grey {
+        color: #a2a3b7;
+    }
+
+    @media only screen and (max-width: 400px) {
+        .card-header {
+            display: block !important;
+        }
+    }
+</style>
+
+
+<!--begin::Container-->
+<div class="container">
+    <div class="row">
+
+        <!-- small cards -->
+        <div class="col-md-12">
+            <div class="row ">
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-cherry">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">New Emplyees</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        500
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-blue-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Permanent</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        789
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Contract Base</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        578
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Job Left</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        150
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--All employee job history -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <h3>Job History For Employees</h3>
+                        <span class="light-grey">Total 500 employees</span>
+                    </div>
+        
+                    <div>
+                        <label for="designation">Filter Table By Designations</label>
+                        <select class="form-control" name="designation" id="designation">
+                            <option value="">ALL</option>
+                            <option value="ENG">Engineer</option>
+                            <option value="MANAGER">Manager</option>
+                            <option value="QC">Quality Checker</option>
+                            <option value="CONSULTANT">Consultant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10" id="job_history_list">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>ID</th>
+                                <th>Designation</th>
+                                <th>Joining Date</th>
+                                <th>Serving For</th>
+                                <th>End Date</th>
+                                <th>City</th>
+                                <th>Branch</th>
+                                <th>Job Type</th>
+                                <th>Salary</th>
+                                <th>Total Salary Earned</th>
+                                <th>Provident Fund</th>
+                                <th>Job Status</th>
+                                <th>Leaves</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>
+                                        <img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt="">
+                                    </td>
+                                    <td>John Abraham</td>
+                                    <td>+88018795685{{ forloop.counter }}</td>
+                                    <td>#E{{ forloop.counter }}</td>
+                                    <td>Assistant Engineer</td>
+                                    <td>2021/01/12</td>
+                                    <td>2 Years</td>
+                                    <td>No End Date(Working)</td>
+                                    <td>Dhaka</td>
+                                    <td>Gulshan</td>
+                                    <td>Permanent</td>
+                                    <td>&#2547 {{ forloop.counter }}0000</td>
+                                    <td>&#2547 2{{ forloop.counter }}0000</td>
+                                    <td>&#2547 2000000</td>
+                                    <td> Running </td>
+                                    <td>50 days</td>
+                                    <td>
+                                        <a title="Detail History" href="">
+                                            <i class="fa fa-info"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--new employee table -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <h3>New Employee List</h3>
+                        <span class="light-grey">Total 500 employees</span>
+                    </div>
+
+                    <div>
+                        <label for="designation">Filter Table By Designations</label>
+                        <select class="form-control" name="designation" id="designation">
+                            <option value="">ALL</option>
+                            <option value="ENG">Engineer</option>
+                            <option value="MANAGER">Manager</option>
+                            <option value="QC">Quality Checker</option>
+                            <option value="CONSULTANT">Consultant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10"
+                            id="new_employees_list">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>ID</th>
+                                <th>Designation</th>
+                                <th>Joining Date</th>
+                                <th>City</th>
+                                <th>Branch</th>
+                                <th>Salary</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>
+                                        <img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt="">
+                                    </td>
+                                    <td>John Abraham</td>
+                                    <td>+88018795685{{ forloop.counter }}</td>
+                                    <td>#E{{ forloop.counter }}</td>
+                                    <td>Assistant Engineer</td>
+                                    <td>2021/01/12</td>
+                                    <td>Dhaka</td>
+                                    <td>Gulshan</td>
+                                    <td>&#2547 {{ forloop.counter }}0000</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Permanent Employees -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <h3>Permanent Employee List</h3>
+                        <span class="light-grey">Total 500 employees</span>
+                    </div>
+
+                    <div>
+                        <label for="designation">Filter Table By Designations</label>
+                        <select class="form-control" name="designation" id="designation">
+                            <option value="">ALL</option>
+                            <option value="ENG">Engineer</option>
+                            <option value="MANAGER">Manager</option>
+                            <option value="QC">Quality Checker</option>
+                            <option value="CONSULTANT">Consultant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10"
+                            id="permanent_employees_list">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>ID</th>
+                                <th>Designation</th>
+                                <th>Joining Date</th>
+                                <th>City</th>
+                                <th>Branch</th>
+                                <th>Salary</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>
+                                        <img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt="">
+                                    </td>
+                                    <td>John Abraham</td>
+                                    <td>+88018795685{{ forloop.counter }}</td>
+                                    <td>#E{{ forloop.counter }}</td>
+                                    <td>Assistant Engineer</td>
+                                    <td>2021/01/12</td>
+                                    <td>Dhaka</td>
+                                    <td>Gulshan</td>
+                                    <td>&#2547 {{ forloop.counter }}0000</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contract Base Employees -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <h3>Contractual Employee List</h3>
+                        <span class="light-grey">Total 500 employees</span>
+                    </div>
+
+                    <div>
+                        <label for="designation">Filter Table By Designations</label>
+                        <select class="form-control" name="designation" id="designation">
+                            <option value="">ALL</option>
+                            <option value="ENG">Engineer</option>
+                            <option value="MANAGER">Manager</option>
+                            <option value="QC">Quality Checker</option>
+                            <option value="CONSULTANT">Consultant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10"
+                            id="contract_employees_list">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>ID</th>
+                                <th>Designation</th>
+                                <th>Joining Date</th>
+                                <th>City</th>
+                                <th>Branch</th>
+                                <th>Salary</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>
+                                        <img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt="">
+                                    </td>
+                                    <td>John Abraham</td>
+                                    <td>+88018795685{{ forloop.counter }}</td>
+                                    <td>#E{{ forloop.counter }}</td>
+                                    <td>Assistant Engineer</td>
+                                    <td>2021/01/12</td>
+                                    <td>Dhaka</td>
+                                    <td>Gulshan</td>
+                                    <td>&#2547 {{ forloop.counter }}0000</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::Container-->
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    $('#designation').change(function () {
+        $('#employees_list').hide(500);
+        $('#employees_list').show(500);
+    })
+</script>
+
+{% endblock %}

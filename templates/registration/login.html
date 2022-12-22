@@ -1,0 +1,542 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Welcome to animo.AI</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/logo/favicon.ico' %}" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/plugins.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/authentication/form-1.css' %}" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/forms/theme-checkbox-radio.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/forms/switches.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/particleJS.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/login-style.css' %}">
+</head>
+
+<body class="form">
+
+    <video autoplay muted loop id="myVideo">
+        <source src="{% static 'assets/video/reverse.a2a438ff.mp4' %}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <!-- <iframe id="myVideo" width="100vw" height="100vh" src="https://www.youtube.com/embed/XNnRTd6hfV4?modestbranding=1&rel=0&autoplay=1&mute=1&controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+    <div class="vid-overlay"></div>
+    <div class="particle-bg">
+        <!-- particles.js container -->
+        <div id="particles-js"></div>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    </div>
+    <div class="form-container">
+        <div class="form-form">
+            <div class="form-form-wrap">
+                <div class="form-container">
+                    <div class="form-content">
+
+                        <!-- <h1 class="">Log In to <a href="index.html"><span class="brand-name">CORK</span></a></h1> -->
+                        <h1 class="login">Log In to
+                            <a href="#"><img src="{% static 'assets/images/logo/login.png' %}" alt="" srcset="" style="margin-top:10px"></a>
+                        </h1>
+                        <!-- Trigger the modal with a button -->
+                        <a class="btn" style="background: transparent;" data-toggle="modal" data-target="#myModal" title="Click to Login">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 250 170" style="enable-background:new 0 0 250 170;" xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M187.2,158c-13.43,0-26.59-5.37-27.38-5.69l0.85-2.05c0.27,0.11,27.28,11.11,42.57,1.64
+			c15-9.29,14.82-31.95,14.82-32.18l-0.01-0.7l0.63-0.31c0.02-0.01,3.43-1.9,7.07-10.09c3.64-8.19-0.95-16.51-1-16.59l-0.23-0.41
+			l0.13-0.45c3.81-13.13-4.34-19.06-4.68-19.3l-0.48-0.34l0.01-0.59c0.19-13.02-10.71-17.72-11.18-17.91l-0.47-0.2l-0.16-0.48
+			c-5.17-15.68-18.71-14.44-19.28-14.38l-0.73,0.08l-0.36-0.64c-10.53-18.92-29.51-15.43-29.71-15.4l-0.82,0.16l-0.38-0.75
+			c-5.16-10.12-14.7-5.86-15.11-5.68L140.71,16l-0.53-0.38c-19.33-13.84-34.56,0.17-35.2,0.77l-0.4,0.38l-0.55-0.09
+			c-35.19-5.89-44.01,20.61-44.37,21.74l-0.23,0.72l-0.76,0.05c-19.59,1.35-20.61,18.46-20.65,19.19L38,59.11l-0.68,0.26
+			c-9.07,3.45-6.41,11.75-6.3,12.1l0.23,0.68l-0.53,0.49c-0.09,0.08-8.73,8.19-6.61,21.51c2.1,13.18,13.03,16.16,13.5,16.28
+			l0.45,0.12l0.23,0.4c3.01,5.08,6.84,8.23,11.39,9.36c7.44,1.85,14.42-2.33,14.49-2.38l1.17-0.71l0.46,1.29
+			c2.07,5.87,9.39,3.89,9.69,3.8l1.06-0.3l0.31,1.05c4.74,15.94,21.48,11.9,22.19,11.73l0.58-0.15l0.44,0.41
+			c5.87,5.41,11.61,7.96,17.05,7.52c6.72-0.53,10.73-5.5,10.77-5.55l1.75,1.37c-0.18,0.23-4.61,5.77-12.31,6.39
+			c-5.97,0.48-12.13-2.11-18.34-7.71c-3.27,0.62-18.78,2.73-23.95-12.37c-3.28,0.62-8.49,0.29-10.84-4.26
+			c-2.43,1.21-8.48,3.66-15.04,2.03c-5.04-1.25-9.27-4.62-12.56-10.02c-2.31-0.76-12.6-4.88-14.68-17.94
+			c-2.04-12.79,4.86-20.99,6.82-23.02c-0.55-2.38-1.59-10.23,7.15-13.94c0.43-3.55,3.36-18.87,21.92-20.52
+			c1.75-4.46,12.66-27.99,46.07-22.63c2.75-2.31,18.31-13.99,37.1-0.94c2.46-0.89,11.64-3.41,17.03,6.23
+			c3.92-0.47,20.84-1.34,30.9,16.02c3.16-0.04,15.61,0.68,20.73,15.48c2.29,1.13,11.98,6.68,12.08,19.23
+			c1.9,1.62,8.62,8.42,5.19,20.93c0.97,1.93,4.52,9.97,0.88,18.17c-3.14,7.07-6.22,9.86-7.5,10.79c-0.05,3.91-1.05,24.3-15.87,33.48
+			C199.36,156.91,193.25,158,187.2,158z" />
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path style="fill:#00FFFF;"
+                                                d="M143.22,100.31h-34.86V65.44h34.86V100.31z M110.58,98.08H141V67.67h-30.42V98.08z" />
+                                        </g>
+                                        <g>
+                                            <rect x="110.27" y="62.51" style="fill:#00FFFF;" width="4.15"
+                                                height="40.72" />
+                                        </g>
+                                        <g>
+                                            <rect x="114.64" y="62.51" style="fill:#00FFFF;" width="4.15"
+                                                height="40.72" />
+                                        </g>
+                                        <g>
+                                            <rect x="119.01" y="62.51" style="fill:#00FFFF;" width="4.15"
+                                                height="40.72" />
+                                        </g>
+                                        <g>
+                                            <rect x="123.39" y="62.51" style="fill:#00FFFF;" width="4.15"
+                                                height="40.72" />
+                                        </g>
+                                        <g>
+                                            <rect x="127.76" y="62.51" style="fill:#00FFFF;" width="4.15"
+                                                height="40.72" />
+                                        </g>
+                                        <g>
+                                            <rect x="132.14" y="62.51" style="fill:#00FFFF;" width="4.15"
+                                                height="40.72" />
+                                        </g>
+                                        <g>
+                                            <rect x="136.51" y="62.51" style="fill:#00FFFF;" width="4.15"
+                                                height="40.72" />
+                                        </g>
+                                        <g>
+                                            <rect x="105.1" y="93.92" style="fill:#00FFFF;" width="40.72"
+                                                height="4.15" />
+                                        </g>
+                                        <g>
+                                            <rect x="105.1" y="89.55" style="fill:#00FFFF;" width="40.72"
+                                                height="4.15" />
+                                        </g>
+                                        <g>
+                                            <rect x="105.1" y="85.17" style="fill:#00FFFF;" width="40.72"
+                                                height="4.15" />
+                                        </g>
+                                        <g>
+                                            <rect x="105.1" y="80.8" style="fill:#00FFFF;" width="40.72"
+                                                height="4.15" />
+                                        </g>
+                                        <g>
+                                            <rect x="105.1" y="76.42" style="fill:#00FFFF;" width="40.72"
+                                                height="4.15" />
+                                        </g>
+                                        <g>
+                                            <rect x="105.1" y="72.05" style="fill:#00FFFF;" width="40.72"
+                                                height="4.15" />
+                                        </g>
+                                        <g>
+                                            <rect x="105.1" y="67.68" style="fill:#00FFFF;" width="40.72"
+                                                height="4.15" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="110.02,70.86 91.71,70.86 57.84,38.89 59.36,37.27 92.59,68.64 110.02,68.64 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="110.02,75.24 85.32,75.24 50.07,40.45 51.64,38.86 86.23,73.01 110.02,73.01 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="218.56,120.63 162.67,83.98 142.11,83.98 142.11,81.76 163.33,81.76 219.78,118.77 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="109.47,88.36 63.31,88.36 36.11,59.09 37.74,57.57 64.28,86.14 109.47,86.14 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="109.47,92.73 47.6,92.73 29.15,72.58 30.79,71.08 48.57,90.51 109.47,90.51 		" />
+                                    </g>
+                                    <g>
+                                        <rect x="51.96" y="57.16" style="fill:#00FFFF;" width="17.76" height="2.22" />
+                                    </g>
+                                    <g>
+
+                                        <rect x="55.3" y="77.39"
+                                            transform="matrix(0.0469 -0.9989 0.9989 0.0469 -17.3592 138.804)"
+                                            style="fill:#00FFFF;" width="17.52" height="2.22" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M49.28,61.68c-1.85,0-3.35-1.5-3.35-3.35s1.5-3.35,3.35-3.35c1.85,0,3.35,1.5,3.35,3.35
+			S51.12,61.68,49.28,61.68z M49.28,57.21c-0.62,0-1.12,0.5-1.12,1.12s0.5,1.12,1.12,1.12c0.62,0,1.12-0.5,1.12-1.12
+			S49.9,57.21,49.28,57.21z" />
+                                    </g>
+                                    <g>
+                                        <rect x="94.58" y="43.61" style="fill:#00FFFF;" width="17.76" height="2.22" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M91.9,48.13c-1.85,0-3.35-1.5-3.35-3.35s1.5-3.35,3.35-3.35s3.35,1.5,3.35,3.35
+			S93.75,48.13,91.9,48.13z M91.9,43.66c-0.62,0-1.12,0.5-1.12,1.12s0.5,1.12,1.12,1.12s1.12-0.5,1.12-1.12S92.52,43.66,91.9,43.66z
+			" />
+                                    </g>
+                                    <g>
+                                        <rect x="138.59" y="55.72" style="fill:#00FFFF;" width="17.76" height="2.22" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M159.03,60.24c-1.85,0-3.35-1.5-3.35-3.35c0-1.85,1.5-3.35,3.35-3.35c1.85,0,3.35,1.5,3.35,3.35
+			C162.38,58.74,160.87,60.24,159.03,60.24z M159.03,55.77c-0.62,0-1.12,0.5-1.12,1.12c0,0.62,0.5,1.12,1.12,1.12
+			c0.62,0,1.12-0.5,1.12-1.12C160.15,56.27,159.65,55.77,159.03,55.77z" />
+                                    </g>
+                                    <g>
+                                        <rect x="159.03" y="111.89" style="fill:#00FFFF;" width="17.76" height="2.22" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M179.47,116.4c-1.85,0-3.35-1.5-3.35-3.35s1.5-3.35,3.35-3.35c1.85,0,3.35,1.5,3.35,3.35
+			S181.31,116.4,179.47,116.4z M179.47,111.93c-0.62,0-1.12,0.5-1.12,1.12s0.5,1.12,1.12,1.12c0.62,0,1.12-0.5,1.12-1.12
+			S180.09,111.93,179.47,111.93z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M144.35,115.67c-1.85,0-3.35-1.5-3.35-3.35c0-1.85,1.5-3.35,3.35-3.35s3.35,1.5,3.35,3.35
+			C147.69,114.17,146.19,115.67,144.35,115.67z M144.35,111.2c-0.62,0-1.12,0.5-1.12,1.12c0,0.62,0.5,1.12,1.12,1.12
+			c0.62,0,1.12-0.5,1.12-1.12C145.47,111.7,144.97,111.2,144.35,111.2z" />
+                                    </g>
+                                    <g>
+                                        <rect x="160.25" y="128.76" style="fill:#00FFFF;" width="28.43" height="2.22" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M191.1,133.6c-2.01,0-3.64-1.63-3.64-3.64c0-2.01,1.63-3.64,3.64-3.64c2.01,0,3.64,1.64,3.64,3.64
+			C194.74,131.97,193.11,133.6,191.1,133.6z M191.1,128.54c-0.78,0-1.42,0.64-1.42,1.42c0,0.78,0.64,1.42,1.42,1.42
+			c0.78,0,1.42-0.64,1.42-1.42C192.52,129.17,191.88,128.54,191.1,128.54z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M152.88,141.07c-2.01,0-3.64-1.64-3.64-3.64s1.63-3.64,3.64-3.64s3.64,1.63,3.64,3.64
+			S154.89,141.07,152.88,141.07z M152.88,136.01c-0.78,0-1.42,0.64-1.42,1.42c0,0.78,0.64,1.42,1.42,1.42
+			c0.78,0,1.42-0.64,1.42-1.42C154.3,136.64,153.66,136.01,152.88,136.01z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M140.51,132.44c-2.01,0-3.64-1.64-3.64-3.64s1.63-3.64,3.64-3.64c2.01,0,3.64,1.64,3.64,3.64
+			S142.52,132.44,140.51,132.44z M140.51,127.37c-0.78,0-1.42,0.64-1.42,1.42c0,0.78,0.64,1.42,1.42,1.42
+			c0.78,0,1.42-0.64,1.42-1.42C141.93,128.01,141.29,127.37,140.51,127.37z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M123.08,125.95c-2.01,0-3.64-1.64-3.64-3.64c0-2.01,1.64-3.64,3.64-3.64
+			c2.01,0,3.64,1.64,3.64,3.64C126.72,124.32,125.09,125.95,123.08,125.95z M123.08,120.89c-0.78,0-1.42,0.64-1.42,1.42
+			s0.64,1.42,1.42,1.42s1.42-0.64,1.42-1.42S123.86,120.89,123.08,120.89z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M108.72,136.99c-2.01,0-3.64-1.64-3.64-3.64c0-2.01,1.63-3.64,3.64-3.64
+			c2.01,0,3.64,1.64,3.64,3.64C112.36,135.36,110.73,136.99,108.72,136.99z M108.72,131.93c-0.78,0-1.42,0.64-1.42,1.42
+			c0,0.78,0.64,1.42,1.42,1.42c0.78,0,1.42-0.64,1.42-1.42C110.14,132.56,109.51,131.93,108.72,131.93z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M202.77,97.66c-1.85,0-3.35-1.5-3.35-3.35c0-1.85,1.5-3.35,3.35-3.35c1.85,0,3.35,1.5,3.35,3.35
+			C206.12,96.16,204.61,97.66,202.77,97.66z M202.77,93.19c-0.62,0-1.12,0.5-1.12,1.12c0,0.62,0.5,1.12,1.12,1.12
+			c0.62,0,1.12-0.5,1.12-1.12C203.89,93.69,203.39,93.19,202.77,93.19z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M64.47,69.9c-1.85,0-3.35-1.5-3.35-3.35s1.5-3.35,3.35-3.35c1.85,0,3.35,1.5,3.35,3.35
+			S66.31,69.9,64.47,69.9z M64.47,65.43c-0.62,0-1.12,0.5-1.12,1.12s0.5,1.12,1.12,1.12c0.62,0,1.12-0.5,1.12-1.12
+			S65.09,65.43,64.47,65.43z" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M67.48,114.17c-1.85,0-3.35-1.5-3.35-3.35s1.5-3.35,3.35-3.35s3.35,1.5,3.35,3.35
+			S69.33,114.17,67.48,114.17z M67.48,109.7c-0.62,0-1.12,0.5-1.12,1.12c0,0.62,0.5,1.12,1.12,1.12c0.62,0,1.12-0.5,1.12-1.12
+			C68.61,110.2,68.1,109.7,67.48,109.7z" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="76.76,123.91 74.81,122.85 90,94.89 110.02,94.89 110.02,97.11 91.32,97.11 		" />
+                                    </g>
+                                    <g>
+
+                                        <rect x="63.58" y="98.99"
+                                            transform="matrix(0.4604 -0.8877 0.8877 0.4604 -49.4011 118.9324)"
+                                            style="fill:#00FFFF;" width="19.11" height="2.23" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M40.32,109.73c-1.85,0-3.35-1.5-3.35-3.35c0-1.85,1.5-3.35,3.35-3.35s3.35,1.5,3.35,3.35
+			C43.67,108.23,42.17,109.73,40.32,109.73z M40.32,105.26c-0.62,0-1.12,0.5-1.12,1.12c0,0.62,0.5,1.12,1.12,1.12
+			c0.62,0,1.12-0.5,1.12-1.12C41.44,105.77,40.94,105.26,40.32,105.26z" />
+                                    </g>
+                                    <g>
+
+                                        <rect x="37.83" y="96.77"
+                                            transform="matrix(0.4604 -0.8877 0.8877 0.4604 -62.6754 92.6595)"
+                                            style="fill:#00FFFF;" width="14.11" height="2.23" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="113.45,66.55 111.23,66.55 111.23,36.68 103.18,15.98 105.25,15.18 113.45,36.47 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="126.57,66.55 124.35,66.55 124.35,33.83 139.96,14.03 141.7,15.41 126.57,34.6 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="139.7,66.55 137.48,66.55 137.48,46 156.5,20.24 158.29,21.56 139.7,46.74 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="163.65,75.24 142.11,75.24 142.11,73.01 162.47,73.01 187.37,36.23 189.21,37.48 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="190.44,79.61 142.11,79.61 142.11,77.39 189.3,77.39 207.84,51.35 209.65,52.64 		" />
+                                    </g>
+                                    <g>
+
+                                        <rect x="198.49" y="80.33"
+                                            transform="matrix(0.5994 -0.8005 0.8005 0.5994 19.9009 202.6561)"
+                                            style="fill:#00FFFF;" width="27.83" height="2.22" />
+                                    </g>
+                                    <g>
+                                        <path style="fill:#00FFFF;" d="M214.69,109.62c-1.85,0-3.35-1.5-3.35-3.35s1.5-3.35,3.35-3.35c1.85,0,3.35,1.5,3.35,3.35
+			S216.53,109.62,214.69,109.62z M214.69,105.14c-0.62,0-1.12,0.5-1.12,1.12s0.5,1.12,1.12,1.12c0.62,0,1.12-0.5,1.12-1.12
+			S215.31,105.14,214.69,105.14z" />
+                                    </g>
+                                    <g>
+
+                                        <rect x="212.55" y="96.23"
+                                            transform="matrix(0.5994 -0.8005 0.8005 0.5994 10.5773 215.8254)"
+                                            style="fill:#00FFFF;" width="16.71" height="2.22" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="159.14,151.36 155.31,97.11 142.11,97.11 142.11,94.89 157.38,94.89 161.36,151.2 		" />
+                                    </g>
+                                    <g>
+                                        <polygon style="fill:#00FFFF;"
+                                            points="100.31,136.37 98.33,135.36 110.7,111.21 141.52,111.21 141.52,113.44 112.06,113.44 		" />
+                                    </g>
+                                </g>
+                            </svg>
+
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Login</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" method="post" class="text-left">
+                                            {% csrf_token %}
+                                            <div class="form">
+                                                <div id="username-field" class="field-wrapper input">
+
+
+                                                    <div id="username-field" class="field-wrapper input">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                        <input class="form-control" placeholder="Username" {{form.username}} </div>
+                                                        <div id="password-field" class="field-wrapper input mb-2">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+                                                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2">
+                                                                </rect>
+                                                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                                            </svg>
+                                                            <input class="form-control" placeholder="Password" {{form.password}} </div>
+                                                        </div>
+                                                        <div class="d-sm-flex justify-content-between">
+                                                            <div class="field-wrapper toggle-pass">
+                                                                <p class="d-inline-block">Show Password</p>
+                                                                <label class="switch s-primary">
+                                                                    <input type="checkbox" id="toggle-password"
+                                                                        class="d-none" onclick="showpass()">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="field-wrapper">
+                                                                <button type="submit" class="btn btn-info" value="">Log
+                                                                    In</button>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="field-wrapper text-center keep-logged-in">
+                                                            <div class="n-chk new-checkbox checkbox-outline-primary">
+                                                                <label class="new-control new-checkbox checkbox-outline-primary">
+                                                                    <input type="checkbox" class="new-control-input">
+                                                                    <span class="new-control-indicator"></span>Keep me
+                                                                    logged in
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                        </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="field-wrapper">
+                                    <a style="color: cyan; font-size: 15px; background-color: transparent;" href="{% url 'password_reset' %}" class="btn forgot-pass">Forgot Password?</a>
+                                    <a href="{% url 'sign_up' %}" class="btn btn-primary text-dark">Sign Up</a>
+                                </div>
+                                <p class="terms-conditions">© 2020 All Rights Reserved. <a href="index.html">animo.AI</a> is a product of Essential-Infotech<a href="javascript:void(0);">Cookie Preferences</a>, <a href="javascript:void(0);">Privacy</a>, and <a href="javascript:void(0);">Terms</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-big">
+                    <img src="{% static 'assets/images/logo/login.png' %}" alt="">
+                    <h2>anywhere & everywhere</h2>
+                </div>
+            </div>
+        </div>
+        <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+        <script src="{% static 'assets/js/libs/jquery-3.1.1.min.js' %}"></script>
+        <script src="{% static 'assets/bootstrap/js/popper.min.js' %}"></script>
+        <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+        <!-- END GLOBAL MANDATORY SCRIPTS -->
+        <script src="{% static 'assets/js/authentication/form-1.js' %}"></script>
+        <script>
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                        "image": {
+                            "src": "img/github.svg",
+                            "width": 100,
+                            "height": 100
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            var count_particles, stats, update;
+            stats = new Stats;
+            stats.setMode(0);
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.left = '0px';
+            stats.domElement.style.top = '0px';
+            document.body.appendChild(stats.domElement);
+            count_particles = document.querySelector('.js-count-particles');
+            update = function() {
+                stats.begin();
+                stats.end();
+                if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+                }
+                requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);;
+        </script>
+        <script>
+            function showpass() {
+                var x = document.getElementById("id_password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .fa-star:hover{
+        color: #f7d514;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-center">
+                        <h3>Review Section</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="text-center mb-3">
+                                    <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                    <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                    <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                    <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                    <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="" id="" placeholder="Search For Employee Here. . . . ">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="">Feedback</label>
+                                <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="">Complain(Optional)</label>
+                                <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                            </div>
+
+                            <div class="col-md-12 my-3">
+                                <div class="w-50 m-auto">
+                                    <button class="btn btn-success form-control">Send</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

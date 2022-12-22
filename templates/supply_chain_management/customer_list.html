@@ -1,0 +1,31 @@
+{% extends '../base.html' %} {% load crispy_forms_tags %} {% load static %} {% block content %}
+<div class="container">
+    <div class="card py-4">
+        <table id="example" class="display" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in object_list %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.address}}</td>
+                    <td class="d-flex">
+                        <a href="{% url 'edit_customer' i.id %}"><i class="icon-xl far fa-edit mx-2"></i></a>
+                        <a href="{% url 'delete_customer' i.id %}"><i class="icon-xl far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

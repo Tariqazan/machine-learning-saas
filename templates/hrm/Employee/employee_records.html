@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .dt-button{
+        background-color: #5584AC !important;
+        color: white !important;
+    }
+
+    .light-grey{
+        color: #a2a3b7;
+    }
+
+    @media only screen and (max-width: 400px) {
+        .card-header{
+            display: block !important;
+        }
+    }
+</style>
+
+
+<!--begin::Container-->
+<div class="container">
+    <div class="row">
+
+        <!-- small cards -->
+        <div class="col-md-12">
+            <div class="row ">
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-cherry">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">New Emplyees</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{Total_Users}}
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-blue-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Enginners</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{Engineer}}
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">QC Checker</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{QC_Checker}}
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Others</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        {{Other_Employees}}
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <h3>Employee List</h3>
+                        <span class="light-grey">Total 500 employees</span>
+                    </div>
+
+                    <div>
+                        <td class="align-middle"><a  class="btn btn-primary " href="{% url 'employee_create' %}">Add Employee</a></td>
+                    </div>
+                    <div>
+                        <label for="designation">Filter Table By Designations</label>
+                        <select class="form-control" name="designation" id="designation">
+                            <option value="">ALL</option>
+                            <option value="ENG">Engineer</option>
+                            <option value="MANAGER">Manager</option>
+                            <option value="QC">Quality Checker</option>
+                            <option value="CONSULTANT">Consultant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>ID</th>
+                                <th>Designation</th>
+                                <th>Joining Date</th>
+                                <th>City</th>
+                                <th>Branch</th>
+                                <th>Salary</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </thead>
+                            <tbody>
+                                {% for Employee in Employees %}
+                                <tr>
+                                  <th td class="align-middle" scope="row">{{Employee.id}}</th>
+                                  <td><img src="/media/{{Employee.profile_pic}}" alt="" width="100px" height="100px"></td>
+                                  <td class="align-middle">{{Employee.name}}</td>
+                                  <td class="align-middle">{{Employee.contact}}</td>
+                                  <td class="align-middle">{{Employee.employee_id}}</td>
+                                  <td class="align-middle">{{Employee.designation}}</td>
+                                  <td class="align-middle">{{Employee.joining_date}}</td>
+                                  <td class="align-middle">{{Employee.city}}</td>
+                                  <td class="align-middle">{{Employee.branch}}</td>
+                                  <td class="align-middle">{{Employee.salary}}</td>
+
+                                  <<td class="align-middle"><a  class="btn btn-info " href="{% url 'employee_update' Employee.id %}">Update</a></td>
+                                  <td class="align-middle"><a  class="btn btn-danger " href="{% url 'employee_delete' Employee.id %}">Delete</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                            {% if Employees.has_other_pages %}
+                              <ul class="pagination">
+                                {% if Employees.has_previous %}
+                                  <li><a href="?page={{ Employee.previous_page_number }}">&laquo;</a></li>
+                                {% else %}
+                                  <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in Employees.paginator.page_range %}
+                                  {% if Employees.number == i %}
+                                    <li class="active btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                  {% else %}
+                                    <li><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ i }}">{{ i }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                                {% if Employees.has_next %}
+                                  <li><a  href="?page={{ Employees.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                  <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                              </ul>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<!--end::Container-->
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    $('#designation').change(function(){
+        $('#employees_list').hide(500);
+        $('#employees_list').show(500);
+    })
+</script>
+
+{% endblock %}

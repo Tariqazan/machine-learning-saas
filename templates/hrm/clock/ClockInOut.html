@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- zhf -->
+<link rel="stylesheet" href="{% static 'assets/css/zhf/clock.css' %}">
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between">
+                <div>
+
+                    <span class="ip" style="color: white; text-transform: uppercase;">
+                    
+                    </span> <br>
+                    <span class="loc" style="color: white; text-transform: uppercase;">
+                    
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <span class="city" style="color: white; text-transform: uppercase;">
+                    
+                    </span> <br>
+                    <span class="country" style="color: white; text-transform: uppercase;">
+                    
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- clock -->
+        <div class="col-md-12">
+            <main>
+                <div class="watch">
+                    <div>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                        <span><span></span></span>
+                    </div>
+                    <svg class="circle">
+                        <circle class="ring" />
+                    </svg>
+                    <p></p>
+                    <h2></h2>
+                    <div>
+                        <p><span><i class="far fa-heart"></i></span><span></span></p>
+                    </div>
+                </div>
+            </main>
+
+            <div class="data">
+                <div class="text-center">
+                    <div class="clockinout">
+                        <button class="btn btn-success timein btn-inactive" style="border-radius: 0px;"  data-type="timein">Time In</button>
+                        <button class="btn btn-success timeout btn-inactive" style="border-radius: 0px;" data-type="timeout">Time Out</button>
+                    </div>
+
+                    <form>
+                        <input required class="my-2 " type="text" name="" id="user_id" placeholder="Enter your ID here"> <br>
+                        <input class="btn btn-success" type="submit" name="" id="confirm" value="Confirm" style="border-radius: 0px;">
+                    </form>
+
+                    <div class="message">
+                        <span class="text-center font-weight-bold user"></span> <br>
+                        <span id="result_show"></span>
+                        <span>Successful at <em id="time_show"></em> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" name="timeInOrOut" id="result">
+
+{% endblock %}
+
+{% block js %}
+
+<!-- background js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.waves.min.js"></script>
+<script>
+    VANTA.WAVES({
+            el: 'body', // element selector string or DOM object reference
+            color: 0x000000,
+            waveHeight: 20,
+            shininess: 50,
+            waveSpeed: 1.5,
+            zoom: 0.75,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00
+        })
+</script>
+<!-- end background js -->
+
+
+
+<!-- clock by zhf -->
+<script>
+    const elP = document.querySelector('.watch > p');
+    const date = new Date().toDateString();
+    elP.innerText = date;
+
+    const elH2 = document.querySelector('.watch > h2');
+    setInterval(() => {
+        const time = new Date().toLocaleString("en-US", {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        });
+        elH2.innerText = time;
+    }, 990);
+    
+</script>
+
+<!-- clock in/out result by zhf -->
+<script>
+    $('#confirm').click(function(event){
+        event.preventDefault();
+        var time = new Date().toLocaleString("en-US", {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        });
+
+       var result =  $('#result').val();
+       if(result !=''){
+           var user_id = $('#user_id').val();
+           var result = $('#result').val();
+
+           if(user_id !== ''){
+               $('.user').html('Welcome ' + user_id + '!')
+               $('#result_show').html(result);
+               $('#time_show').html(time);
+               $('.message').show(500);
+               $('#user_id').val('');
+           }
+           
+
+       }
+    })
+
+    $('.timein').click(function(){
+        $('#result').val('Time In');
+        $(this).removeClass("btn-inactive");
+        $('.timeout').addClass("btn-inactive");
+    })
+
+    $('.timeout').click(function () {
+        $('#result').val('Time Out');
+        $(this).removeClass("btn-inactive");
+        $('.timein').addClass("btn-inactive");
+    })
+</script>
+
+<!-- ip info -->
+<script>
+    function recordData(data) {
+        console.log(data.ip, data.country)
+        $('.ip').html('IP: ' + data.ip);
+        $('.loc').html('LOCATION: ' + data.loc);
+        $('.city').html('CITY: ' + data.city);
+        $('.country').html('COUNTRY: ' + data.country);
+    }
+</script>
+<script src="https://ipinfo.io/json?callback=recordData"></script>
+
+{% endblock %}

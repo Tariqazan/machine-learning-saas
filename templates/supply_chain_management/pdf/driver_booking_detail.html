@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Work Detail Report</title>
+</head>
+<style>
+    .title {
+        background-color: #f3f6f9;
+        font-size: 15px;
+        text-align: center;
+        padding: 20px 0;
+        margin: 15px 0;
+    }
+    
+    .title p {
+        padding: 0 !important;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    .row {
+        text-align: center;
+        padding-top: 5px;
+    }
+    
+    .footer {
+        padding-top: 15px;
+    }
+</style>
+
+<body>
+    <div class="title">
+        <span>{{driver.name}}</span>
+    </div>
+    <div class="title">
+        <span>Salary: {{salary}}</span>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th class="">Destination</th>
+                <th class="">Distance</th>
+                <th class="">Fuel</th>
+                <th class="">Cost</th>
+                <th class="">Vehicle</th>
+                <th class="">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr class="row">
+                <td class="">{{i.destination}}</td>
+                <td class="">{{i.distance}}</td>
+                <td class="">{{i.fuel}} ltr</td>
+                <td class="">{{i.cost}} tk</td>
+                <td class="">{{i.vehicle.vehicle_no}}</td>
+                <td class="">{{i.trip_start}}</td>
+            </tr>
+            {% endfor %}
+            <tr class="row footer">
+                <td class="">Total</td>
+                <td class=""><strong>{{total_distance.distance__sum}} km</strong></td>
+                <td class=""><strong>{{total.fuel__sum}} litre</strong></td>
+                <td class=""><strong>{{total_cost.cost__sum}} tk</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

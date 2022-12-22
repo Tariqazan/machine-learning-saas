@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/logo/favicon.ico' %}" />
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="{% static 'assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/plugins/custom/prismjs/prismjs.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles-->
+    <link rel="stylesheet" href="{% static 'assets/sign-up/css/style.css' %}">
+</head>
+
+<body id="background">
+    <div class="container">
+        <div class="signup-card">
+            <div class="logo">
+                <img src="{% static 'assets/sign-up/images/logo.png' %}" alt="">
+            </div>
+            <div class="text">
+                <hr>
+                <p class="sign-up h3 text-white">Sign up</p>
+                <hr>
+            </div>
+            <form method="POST" class="signup-form" id="register-form" enctype="multipart/form-data">
+                {% csrf_token %} {{form.errors}}
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="form-input">
+                            <label for="first_name" class="required">First name</label>
+                            <input type="text" name="first_name" id="first_name" />
+                        </div>
+                        <div class="form-input">
+                            <label for="last_name" class="required">Last name</label>
+                            <input type="text" name="last_name" id="last_name" />
+                        </div>
+                        <div class="form-input">
+                            <label for="username" class="required">Username</label>
+                            <input type="text" name="username" id="username" />
+                        </div>
+                        <div class="form-input">
+                            <label for="number" class="required">Phone number</label>
+                            <input type="number" name="contact" id="id_contact" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-input">
+                            <label for="password1" class="required">Password</label>
+                            <input type="password" name="password1" id="password1" />
+                        </div>
+                        <div class="form-input">
+                            <label for="password2" class="required">Confirm Password</label>
+                            <input type="password" name="password2" id="password2" />
+                        </div>
+                        <div class="form-input">
+                            <label for="email" class="required">Email</label>
+                            <input type="email" name="email" id="email" />
+                        </div>
+                        <div class="form-input">
+                            <label for="id_image" class="required">Profile Picture</label>
+                            <label class="upload-btn">
+                                <input type="file" name="image" id="id_image" />
+                                <span id="selectedFileName">Select</span>
+                              </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-submit">
+                    <input type="submit" value="Submit" class="btn submit" id="submit" name="submit" />
+                    <a href="{% url 'login' %}">Already have an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'assets/sign-up/js/three.min.js' %}"></script>
+    <script src="{% static 'assets/sign-up/js/vanta.net.min.js' %}"></script>
+    <script>
+        VANTA.NET({
+            el: "#background",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: true,
+            minHeight: 400.00,
+            minWidth: 800.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xbbb,
+            backgroundColor: 0x0,
+            points: 15.00,
+            maxDistance: 13.00
+        })
+    </script>
+</body>
+
+</html>

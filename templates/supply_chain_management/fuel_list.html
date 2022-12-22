@@ -1,0 +1,34 @@
+{% extends '../base.html' %} {% load crispy_forms_tags %} {% load static %} {% block content %}
+<div class="container">
+    <div class="card p-4">
+        <div class="table-responsive">
+            <table id="example" class="display" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>Driver</th>
+                        <th>Fill Date</th>
+                        <th>Quantity</th>
+                        <th>Odometer Reading</th>
+                        <th>Amount</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in object_list %}
+                    <tr>
+                        <td>{{i.vehicle}}</td>
+                        <td>{{i.driver}}</td>
+                        <td>{{i.fill_date}}</td>
+                        <td>{{i.quantity}}</td>
+                        <td>{{i.odometer}}</td>
+                        <td>{{i.amount}}</td>
+                        <td>{{i.comment}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

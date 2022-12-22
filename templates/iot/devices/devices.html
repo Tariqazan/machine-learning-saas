@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--begin::Container-->
+<div class="container">
+    <div class="row">
+        {% for i in devices_list %}
+        <div class="col-md-4">
+            <div class="card" id="device{{i.id}}">
+                <div class="card-header d-flex">
+                    <p class="h3">{{i.model}}({{i.code}})</p>
+                    <a href="{% url 'edit_devices' i.id %}" style="position: absolute; right: 20px;"><i
+                            class="fas fa-edit"></i></a>
+                    <button style="background: transparent; border: none;position: absolute; right: 40px;"
+                        onclick="deletedevice({{i.id}})"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="switch">
+                                <input type="checkbox" id="switch" value="">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{{i.device_pic.url}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+{% block js %}
+<script>
+    function deletedevice(id) {
+        var action = confirm("Are you sure?")
+        if (action != false) {
+            $.ajax({
+                url: "{% url 'delete_devices' %}",
+                data: {
+                    'id': id
+                },
+                success: function (data) {
+                    $("#device" + id).remove()
+                }
+            })
+        }
+    }
+</script>
+<script>
+    $(document).ready(function() {
+        $("#switch").click(function() {
+            if ($("#switch").is(
+              ":checked")) {
+                alert("On");
+            } else {
+                alert("Off");
+            }
+        });
+    });
+</script>
+{% endblock %}

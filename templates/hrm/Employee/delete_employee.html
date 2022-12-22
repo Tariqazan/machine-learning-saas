@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+<br>
+<div class="mx-auto" style="width: 350px;">
+		<div class="card card-body">
+
+			<p>Are you sure you want to delete "{{item}}"?</p>
+
+			<form action="{% url 'employee_delete' item.id  %}" method="POST">
+
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'employee_records' %}">Cancel</a>
+
+				<input class="btn btn-danger" type="submit" name="Confirm">
+			</form>
+		</div>
+</div>
+{% endblock %}

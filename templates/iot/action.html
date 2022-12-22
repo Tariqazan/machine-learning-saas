@@ -1,0 +1,31 @@
+{% extends '../base.html' %} {% load static %} {% load crispy_forms_tags %}{% block css %} {% endblock %} {% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <p class="h2 text-center">Actions</p>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Device</th>
+                    <th>Method</th>
+                    <th>Samples</th>
+                    <th>Result</th>
+                    <th>Location</th>
+                </thead>
+                <tbody>
+                    {% for i in object_list %}
+                    <tr>
+                        <td>{{i.device}}</td>
+                        <td>{{i.method}}</td>
+                        <td>{{i.samples}}</td>
+                        <td>{{i.result}}</td>
+                        <td>{{i.location}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

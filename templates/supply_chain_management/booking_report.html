@@ -1,0 +1,126 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <form action="/booking/report/" method="post" class="d-flex justify-content-between">
+                <p>Start Date: <input type="date" id="start_date" name="start_date" class=""></p>
+                <p>End Date: <input type="date" id="end_date" name="end_date" class=""></p>
+                <button id="generate" class="btn btn-outline-success">Generate Report</button>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="display" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Trip Start</th>
+                            <th>Customer</th>
+                            <th>Driver</th>
+                            <th>Vehicle</th>
+                            <th>Destination</th>
+                            <th>Distance</th>
+                            <th>Fuel</th>
+                            <th>Cost</th>
+                            <th>Overtime</th>
+                            <th>Status</th>
+                            <th>Trip End</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for i in bookings %}
+                        <tr>
+                            <td>{{i.trip_start}}</td>
+                            <td>{{i.customer}}</td>
+                            <td>{{i.driver}}</td>
+                            <td>{{i.vehicle}}</td>
+                            <td>{{i.destination}}</td>
+                            <td>{{i.distance}}</td>
+                            <td>{{i.fuel}}</td>
+                            <td>{{i.cost}}</td>
+                            <td id="{{i.id}}" style="width: 15%; padding: 0 !important;vertical-align: text-top !important; text-align: center;border: 1px solid;" data-toggle="tooltip" title="Click here to add overtime" onclick="save_overtime(this.id)">{{i.overtime}}</td>
+                            <td> {% if i.status is False %}
+                                <select name="" id="status{{i.id}}" onchange="status(this.id,{{i.id}})" class="form-control">
+                                    <option value="Returned">Returned</option>
+                                    <option value="On The Way" selected disabled>On The Way</option>
+                                </select> {% else %} <span class="badge badge-success">Returned</span> {% endif %}
+
+                            </td>
+                            <td>{{i.trip_end}}</td>
+                            <td class="d-flex">
+                                <a href="{% url 'edit_booking' i.id %}"><i class="icon-xl far fa-edit mx-2"></i></a>
+                                <a href="{% url 'booking_delete' i.id %}"><i class="icon-xl far fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script>
+    function save_overtime(id) {
+        var value = $("#" + id).html()
+        $("#" + id).replaceWith('<td id=' + id + '><input type="text" value=' + value + ' id="overtime' + id + '"><input type="submit" onclick="save_orderdata(' + id + ')" class="btn btn-outline-success"></td>')
+    }
+</script>
+<script>
+    function save_orderdata(id) {
+        var action = confirm("Are you sure?")
+        var value = $("#overtime" + id).val()
+        if (action == true) {
+            $.ajax({
+                url: '{% url "overtime" %}',
+                method: 'post',
+                data: {
+                    'id': id,
+                    'value': value
+                },
+                dataType: 'json',
+                success: function() {
+                    $("#" + id).replaceWith('<td id=' + id + '  style="width: 15%; padding: 0 !important;vertical-align: text-top !important; text-align: center;" onclick="save_overtime(this.id)">' + value + '</td>')
+                }
+            })
+        } else {
+            $("#" + id).replaceWith('<td id=' + id + '  style="width: 15%; padding: 0 !important;vertical-align: text-top !important; text-align: center;"onclick="save_overtime(this.id)">' + value + '</td>')
+        }
+    }
+</script>
+<script>
+    function status(status_id, id) {
+        var action = confirm("Are you sure to change the status?")
+        if (action == true) {
+
+            var value = $('#' + status_id).val()
+            $.ajax({
+                url: '{% url "status" %}',
+                method: 'post',
+                data: {
+                    'id': id,
+                    'value': value
+                },
+                dataType: 'json',
+                success: function() {
+                    window.location = '/booking/list/'
+                }
+            })
+            var value = $('#' + status_id).val()
+            $.ajax({
+                url: '{% url "status" %}',
+                method: 'post',
+                data: {
+                    'id': id,
+                    'value': value
+                },
+                dataType: 'json',
+                success: function() {
+                    window.location = '/fleet/management/'
+                }
+            })
+        }
+    }
+</script>
+{% endblock %}

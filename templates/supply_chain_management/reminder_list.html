@@ -1,0 +1,29 @@
+{% extends '../base.html' %} {% load crispy_forms_tags %} {% load static %} {% block css %} {% endblock %} {% block header %} {% endblock %} {% block content %}
+<div class="container">
+    <div class="card py-4 mb-3">
+        <table id="example" class="display" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Date</th>
+                    <th>Message</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in object_list %}
+                <tr>
+                    <td>{{i.vehicle}}</td>
+                    <td>{{i.date}}</td>
+                    <td>{{i.message}}</td>
+                    <td class="d-flex">
+                        <a href="{% url 'edit_reminder' i.id %}"><i class="icon-xl far fa-edit mx-2"></i></a>
+                        <a href="{% url 'reminder_delete' i.id %}"><i class="icon-xl far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

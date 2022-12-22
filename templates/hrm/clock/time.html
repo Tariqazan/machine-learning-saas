@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .dt-button {
+        background-color: #5584AC !important;
+        color: white !important;
+    }
+
+    .light-grey {
+        color: #a2a3b7;
+    }
+
+    @media only screen and (max-width: 400px) {
+        .card-header {
+            display: block !important;
+        }
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-center">
+                        <h3>Monthly Time Tracking</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10" id="time_table">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Designation</th>
+                                <th>Time In</th>
+                                <th>Time Out</th>
+                                <th>Hours</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>
+                                            <img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt="">
+                                        </td>
+                                        <td>Dwayne Jhonson</td>
+                                        <td>#E{{ forloop.counter }}</td>
+                                        <td>Assistant Engineer</td>
+                                        <td>Saturday, December,2021
+                                            <br>
+                                            10.00am
+                                        </td>
+                                        <td>Saturday, December,2021
+                                            <br>
+                                            6.00pm
+                                        </td>
+                                        <td>8 hours</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock %}

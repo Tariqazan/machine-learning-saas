@@ -1,0 +1,42 @@
+{% extends '../base.html' %} {% load crispy_forms_tags %} {% load static %} {% block content %}
+<div class="container">
+    <div class="card p-4">
+        <div class="card-header">
+            <form action="/fuel/report/" method="post" class="d-flex justify-content-between">
+                <p>Start Date: <input type="date" id="start_date" name="start_date" class=""></p>
+                <p>End Date: <input type="date" id="end_date" name="end_date" class=""></p>
+                <button id="generate" class="btn btn-outline-success">Generate Report</button>
+            </form>
+        </div>
+        <div class="card-body">
+
+            <table id="example" class="display" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>Driver</th>
+                        <th>Fill Date</th>
+                        <th>Quantity</th>
+                        <th>Odometer Reading</th>
+                        <th>Amount</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in fuels %}
+                    <tr>
+                        <td>{{i.vehicle}}</td>
+                        <td>{{i.driver}}</td>
+                        <td>{{i.fill_date}}</td>
+                        <td>{{i.quantity}}</td>
+                        <td>{{i.odometer}}</td>
+                        <td>{{i.amount}}</td>
+                        <td>{{i.comment}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

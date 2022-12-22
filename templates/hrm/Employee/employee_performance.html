@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .dt-button {
+        background-color: #5584AC !important;
+        color: white !important;
+    }
+
+    .light-grey {
+        color: #a2a3b7;
+    }
+
+    @media only screen and (max-width: 400px) {
+        .card-header {
+            display: block !important;
+        }
+    }
+    .modal-header {
+    background: #F7941E;
+    color: #fff;
+    }
+
+    .required:after {
+        content: "*";
+        color: red;
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-center">
+                        <h3>Employee Performance For Current Month</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10" id="employee_performance_list">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Current Month Tasks</th>
+                                <th>Task Complete Ratio Current Month</th>
+                                <th>Progress Bar</th>
+                                <th>Status</th>
+                            </thead>
+                            <tbody>
+                                {% for Employee in Employees %}
+                                    <tr>
+                                        <td><img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt=""></td>
+                                        <td>{{Employee.name}}</td>
+                                        <td>
+                                          {% for i in  Employee.task_set.all|slice:":2" %}
+                                            <!-- <span>Database</span>  -->
+                                            {{i.task}}<br>
+                                          {% endfor %}
+
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{Employee.id}}">
+                                              All Tasks
+                                            </button>
+                                            <div class="modal fade" id="exampleModal{{Employee.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">All Tasks</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    {% for i in  Employee.task_set.all %}
+                                                      {{i.task}}<br>
+                                                    {% endfor %}
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </td>
+                                        <td>
+
+                                          {{ Employee.taskProgressCount }}
+                                           completed out {{ Employee.task_set.all.count }} Tasks<br>
+
+                                        </td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: {{Employee.taskProgressPercentage}}%" aria-valuenow="25" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                          {% if Employee.taskProgressPercentage > 70 %}
+                                            <span class="custom-badge status-green mb-1 btn btn-success">Good</span> <br>
+                                            <span class="custom-badge status-pink mb-1">Poor</span> <br>
+                                            <span class="custom-badge status-grey">Average</span>
+                                          {% elif Employee.taskProgressPercentage > 30 and Employee.taskProgressPercentage < 70  %}
+                                            <span class="custom-badge status-green mb-1">Good</span> <br>
+                                            <span class="custom-badge status-pink mb-1">Poor</span> <br>
+                                            <span class="custom-badge status-grey btn btn-warning">Average</span>
+                                          {% elif Employee.taskProgressPercentage < 30  %}
+                                            <span class="custom-badge status-green mb-1">Good</span> <br>
+                                            <span class="custom-badge status-pink btn btn-danger mb-1">Poor</span> <br>
+                                            <span class="custom-badge status-grey">Average</span>
+                                          {% else %}
+                                            <span class="custom-badge status-green mb-1">Good</span> <br>
+                                            <span class="custom-badge status-pink mb-1">Poor</span> <br>
+                                            <span class="custom-badge status-grey">Average</span>
+                                          {% endif %}
+                                        </td>
+
+
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+
+                        </table>
+                        {% if Employees.has_other_pages %}
+                          <ul class="pagination">
+                            {% if Employees.has_previous %}
+                              <li><a href="?page={{ Employee.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in Employees.paginator.page_range %}
+                              {% if Employees.number == i %}
+                                <li class="active btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                <li><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ i }}">{{ i }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                            {% if Employees.has_next %}
+                              <li><a  href="?page={{ Employees.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                          </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}

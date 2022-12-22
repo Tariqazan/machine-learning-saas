@@ -1,0 +1,446 @@
+.vanta-canvas {
+    height: 892px !important;
+}
+
+.signup-card {
+    box-shadow: 0 0 50px 0 rgb(53, 53, 53);
+    margin: 0 auto;
+    padding: 20px 0 20px 0;
+}
+
+.signup-card {
+    animation: signupcard ease-in-out 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes signupcard {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.text {
+    animation: textreveal ease-in-out 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes textreveal {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.text {
+    text-align: center;
+}
+
+.text hr {
+    animation: hr ease-in-out 7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes hr {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    20% {
+        width: 20%;
+        opacity: 0.8;
+    }
+    40% {
+        width: 40%;
+        opacity: 0.6;
+    }
+    60% {
+        width: 60%;
+        opacity: 0.4;
+    }
+    100% {
+        width: 100%;
+        opacity: 0.2;
+    }
+}
+
+.text hr {
+    background-color: white;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    margin: 0 auto;
+    width: 25%;
+}
+
+.signup-form {
+    padding: 20px 50px;
+    width: 70vw;
+    margin: 20px auto 0 auto;
+}
+
+.form-input {
+    margin-bottom: 25px;
+}
+
+.form-input label,
+.form-select label {
+    color: white;
+}
+
+.form-row {
+    margin: 0 -30px;
+}
+
+.form-row .form-group {
+    width: 50%;
+    padding: 0 30px;
+}
+
+label,
+input {
+    display: block;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+label.required {
+    position: relative;
+}
+
+label.required:after {
+    content: '*';
+    margin-left: 2px;
+    color: #b90000;
+}
+
+input {
+    outline: black;
+    color: white;
+    background: transparent;
+    box-sizing: border-box;
+    /* border: 1px solid #ebebeb; */
+    padding: 14px 20px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Poppins';
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid cyan;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: 1s ease;
+}
+
+select {
+    color: white;
+    padding: 15px;
+    width: 100%;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: white;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: transparent;
+    cursor: default;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border-radius: 0px;
+    border-top: 2px solid #212121;
+    border-left: 2px solid #212121;
+    border-bottom: 2px solid #767676;
+    border-right: 2px solid #767676;
+    border-image: initial;
+}
+
+select option[value="Machine Vision"] {
+    background: black;
+    color: white;
+}
+
+select option[value=""] {
+    background: black;
+    color: white;
+}
+
+select option[value="IoT"] {
+    background: black;
+    color: white;
+}
+
+select option[value="Fuel Management"] {
+    background: black;
+    color: white;
+}
+
+select option[value="Accounting"] {
+    background: black;
+    color: white;
+}
+
+select option[value="Facial Recognition"] {
+    background: black;
+    color: white;
+}
+
+#profile_pic {
+    display: none;
+}
+
+.upload-btn {
+    display: block;
+    text-align: center;
+    margin: 20px auto 20px;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    line-height: 30px;
+    border-top: 2px solid #212121;
+    border-left: 2px solid #212121;
+    border-bottom: 2px solid #767676;
+    border-right: 2px solid #767676;
+}
+
+.upload-btn:hover {
+    transition: 1s;
+    border-bottom: 2px solid cyan;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    color: white;
+    cursor: pointer;
+}
+
+.label-flex {
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -o-justify-content: space-between;
+    -ms-justify-content: space-between;
+}
+
+.label-flex label {
+    width: auto;
+}
+
+.form-submit {
+    text-align: center;
+}
+
+.submit {
+    width: 150px;
+    height: 50px;
+    display: inline-block;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+}
+
+#submit {
+    background: white;
+    color: rgb(0, 0, 0);
+    margin-right: 25px;
+}
+
+#submit:hover {
+    background-color: #00eeff;
+    color: black;
+}
+
+.form-input {
+    position: relative;
+}
+
+label.error {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0;
+}
+
+label.error:after {
+    font-family: 'Material-Design-Iconic-Font';
+    position: absolute;
+    content: '\f1f8';
+    right: 20px;
+    top: 37px;
+    font-size: 23px;
+    color: #c70000;
+}
+
+input.error {
+    border: 1px solid #c70000;
+}
+
+.select-list {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 47px;
+}
+
+@media screen and (max-width: 992px) {
+    .signup-content {
+        width: 100%;
+    }
+    .form-radio-item {
+        margin-right: 15px;
+    }
+    .register-form {
+        padding: 93px 30px 90px 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column;
+        margin: 0px;
+    }
+    .form-row .form-group {
+        width: 100%;
+        padding: 0 0px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .signup-form {
+        width: 100%;
+    }
+    .vanta-canvas {
+        height: 880px !important;
+        width: 100vw !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .signup-card {
+        width: 100%;
+        box-shadow: none;
+        background: transparent;
+        margin-top: 40px;
+        padding: 20px 10px;
+    }
+    .vanta-canvas {
+        height: 1450px !important;
+        width: 100vw !important;
+    }
+    .submit {
+        width: 100%;
+    }
+    #submit {
+        margin-bottom: 20px;
+        margin-right: 0px;
+    }
+    .form-radio-group {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .signup-card {
+        width: 100%;
+        box-shadow: none;
+        background: transparent;
+        margin-top: 40px;
+        padding: 20px 10px;
+    }
+    .vanta-canvas {
+        height: 1450px !important;
+        width: 100vw !important;
+    }
+    .submit {
+        width: 100%;
+    }
+    #submit {
+        margin-bottom: 20px;
+        margin-right: 0px;
+    }
+    .form-radio-group {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .signup-card {
+        width: 100%;
+        box-shadow: none;
+        background: transparent;
+        margin-top: 40px;
+        padding: 20px 10px;
+    }
+    .vanta-canvas {
+        height: 1400px !important;
+        width: 100vw !important;
+    }
+    .submit {
+        width: 100%;
+    }
+    #submit {
+        margin-bottom: 20px;
+        margin-right: 0px;
+    }
+    .form-radio-group {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column;
+    }
+}

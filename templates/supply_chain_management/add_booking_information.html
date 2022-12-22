@@ -1,0 +1,271 @@
+{% extends '../base.html' %} {% load crispy_forms_tags %} {% load static %} {% block header %}
+<h2 style="position: absolute; left: 40%;" class="text-center font-weight-bolder py-2">Work Management</h2>
+{% endblock %} {% block css %}
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    
+    #map {
+        height: 100%;
+    }
+    
+    #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+    }
+    
+    #infowindow-content .title {
+        font-weight: bold;
+    }
+    
+    #infowindow-content {
+        display: none;
+    }
+    
+    #map #infowindow-content {
+        display: inline;
+    }
+    
+    .pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+    }
+    
+    #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+    }
+    
+    .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+    }
+    
+    .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+    }
+    
+    #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+    }
+    
+    #pac-input:focus {
+        border-color: #4d90fe;
+    }
+    
+    #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+    }
+    
+    #target {
+        width: 345px;
+    }
+</style>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="card text-center py-3">
+        <div class="row py-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form action="" method="post">
+                    {{form.errors}} {% csrf_token %}
+                    <select name="customer" id="mySelect3" class="form-control my-3">
+                        <option value="" selected disabled>choose customer</option>
+                        {% for i in customer %}
+                        <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="driver" id="mySelect2" class="form-control my-3">
+                        <option value="" selected disabled>choose driver</option>
+                        {% for i in drivers %}
+                        <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="vehicle" id="mySelect1" class="form-control my-3">
+                        <option value="" selected disabled>choose Vehicle</option>
+                        {% for i in vehicles %}
+                        <option value="{{i.id}}">{{i.vehicle_no}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="distance">Distance*</label>
+                    <input type="text" name="distance" class="form-control" id="id_distance">
+                    <label for="destination">Destination*</label>
+                    <input type="text" name="destination" class="form-control" id="id_destination">
+                    <label for="time">Estimated Time*</label>
+                    <input type="text" name="time" class="form-control" id="id_time">
+                    <label for="fuel">Fuel*</label>
+                    <input type="text" name="fuel" class="form-control" id="id_fuel">
+                    <label for="cost">Cost*</label>
+                    <input type="text" name="cost" class="form-control" id="id_cost">
+                    <label for="">Email</label><br>
+                    <input type="checkbox" name="email" id="id_email" class="mr-2"><span>Is need to sent Booking confirmation email to customer?</span><br>
+                    <input type="submit" class="btn btn-success mt-3">
+                </form>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+                <div id="map" style="height: 100vh; width: 78vw;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmk0JiD0QiKHxJsgv9_eWXucmCQWQX9G4&callback=initAutocomplete&libraries=places&v=weekly" async></script>
+<script>
+    $('#mySelect2').select2({
+        selectOnClose: true
+    });
+    $('#mySelect1').select2({
+        selectOnClose: true
+    });
+    $('#mySelect3').select2({
+        selectOnClose: true
+    });
+</script>
+<script>
+    function initAutocomplete() {
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+        const directionsService = new google.maps.DirectionsService();
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+                lat: -33.8688,
+                lng: 151.2195
+            },
+            zoom: 13,
+            mapTypeId: "roadmap",
+        });
+        // Create the search box and link it to the UI element.
+        const input = document.getElementById("pac-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener("bounds_changed", () => {
+            searchBox.setBounds(map.getBounds());
+        });
+        let markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+            document.getElementById("id_destination").value = places[0].formatted_address
+            if (places.length == 0) {
+                return;
+            }
+            // Clear out the old markers.
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+            markers = [];
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+            places.forEach((place) => {
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                lat = place.geometry.location.lat()
+                lng = place.geometry.location.lng()
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        icon,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+
+                calculateAndDisplayRoute(directionsService, directionsRenderer, lat, lng);
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+        directionsRenderer.setMap(map);
+    }
+
+    function calculateAndDisplayRoute(directionsService, directionsRenderer, lat, lng) {
+        start = {
+            lat: 23.685371012219367,
+            lng: 90.55068228152635
+        }
+        end = {
+            lat: lat,
+            lng: lng
+        }
+        directionsService.route({
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode["DRIVING"],
+            },
+            (response, status) => {
+                if (status == "OK") {
+                    directionsRenderer.setDirections(response);
+
+                } else {
+                    window.alert("Directions request failed due to " + status);
+                }
+            }
+        );
+
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix({
+            origins: [start],
+            destinations: [end],
+            travelMode: google.maps.TravelMode['DRIVING'],
+            unitSystem: google.maps.UnitSystem.METRIC,
+            avoidHighways: false,
+            avoidTolls: false
+        }, function(response, status) {
+            var step = parseFloat(response.rows[0].elements[0].distance.text) / 2;
+            if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                var distance = response.rows[0].elements[0].distance.text;
+                var duration = response.rows[0].elements[0].duration.text;
+                document.getElementById("id_distance").value = distance
+                document.getElementById("id_time").value = duration
+                var fuel = parseInt(distance) / 4.25
+                var cost = fuel * 89
+                document.getElementById("id_fuel").value = parseInt(fuel)
+                document.getElementById("id_cost").value = parseInt(cost)
+            } else {
+                alert("Unable to find the distance via road.");
+            }
+        });
+    }
+</script>
+{% endblock %}

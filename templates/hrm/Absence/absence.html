@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .dt-button {
+        background-color: #5584AC !important;
+        color: white !important;
+    }
+
+    .light-grey {
+        color: #a2a3b7;
+    }
+
+    @media only screen and (max-width: 400px) {
+        .card-header {
+            display: block !important;
+        }
+    }
+</style>
+
+
+<!--begin::Container-->
+<div class="container">
+    <div class="row">
+
+        <!-- absence table -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <h3>Absence List</h3>
+                        <span class="light-grey date">
+
+                        </span>
+                    </div>
+
+                    <div>
+                        <label for="designation">Filter Table By Designations</label>
+                        <select class="form-control" name="designation" id="designation">
+                            <option value="">ALL</option>
+                            <option value="ENG">Engineer</option>
+                            <option value="MANAGER">Manager</option>
+                            <option value="QC">Quality Checker</option>
+                            <option value="CONSULTANT">Consultant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="display table table-bordered table-hover table-checkable mt-10"
+                            id="absence_list">
+                            <thead>
+                                <th>#</th>
+                                <th>Employee</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>ID</th>
+                                <th>Designation</th>
+                                <th>City</th>
+                                <th>Branch</th>
+                                <th>Absence</th>
+                            </thead>
+                            <tbody>
+                                {% for i in loop %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>
+                                        <img src="https://i.pravatar.cc/70?img={{ forloop.counter }}" alt="">
+                                    </td>
+                                    <td>John Abraham</td>
+                                    <td>+88018795685{{ forloop.counter }}</td>
+                                    <td>#E{{ forloop.counter }}</td>
+                                    <td>Assistant Engineer</td>
+                                    <td>Dhaka</td>
+                                    <td>Gulshan</td>
+                                    <td>
+                                        2021/01/12,
+                                        2021/01/3,
+                                        2021/01/4,
+                                        2021/01/13,
+                                        2021/01/25,
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--end::Container-->
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    $('#designation').change(function () {
+        $('#employees_list').hide(500);
+        $('#employees_list').show(500);
+    })
+</script>
+
+<script>
+    $(document).ready(function(){
+        const date = new Date();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        $('.date').html(monthNames[date.getMonth()] + ',' + date.getFullYear())
+    })
+</script>
+
+{% endblock %}

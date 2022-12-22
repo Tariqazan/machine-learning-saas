@@ -1,0 +1,49 @@
+{% extends '../base.html' %} {% load static %} {% block css %} {% endblock %} {% block header %} {% endblock %} {% block content %}
+<div class="container">
+    <div class="card p-4">
+        <div class="card-header">
+            <form action="/maintenance/report/" method="post" class="d-flex justify-content-between">
+                <p>Start Date: <input type="date" id="start_date" name="start_date" class=""></p>
+                <p>End Date: <input type="date" id="end_date" name="end_date" class=""></p>
+                <button id="generate" class="btn btn-outline-success">Generate Report</button>
+            </form>
+        </div>
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table id="example" class="display" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>Item</th>
+                            <th>Amount</th>
+                            <th>Referance</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for i in maintenances %}
+                        <tr>
+                            <td>{{i.vehicle}}</td>
+                            <td>{{i.item}}</td>
+                            <td>{{i.amount}}</td>
+                            {% if i.reference %}
+                            <td><a href="/media/{{i.reference}}">{{i.reference}}</a></td>
+                            {% else %}
+                            <td>none</td>
+                            {% endif %}
+                            <td class="d-flex">
+                                <a href="{% url 'edit_maintenance' i.id %}"><i class="icon-xl far fa-edit mx-2"></i></a>
+                                <a href="{% url 'maintenance_delete' i.id %}"><i class="icon-xl far fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %} {% endblock %}

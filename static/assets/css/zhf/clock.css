@@ -1,0 +1,404 @@
+
+ main {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .watch {
+	 position: relative;
+	 width: 250px;
+	 aspect-ratio: 1;
+	 background: #242424;
+	 border-radius: 50%;
+	 color: #fff;
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 justify-content: center;
+	 gap: 5px;
+	 box-shadow: 0 0 0 6px #3a3a3a;
+}
+ .watch > div:nth-child(2) {
+	 position: absolute;
+	 border-radius: 50%;
+	 width: 95%;
+	 aspect-ratio: 1;
+	 overflow: hidden;
+}
+ .watch .progress {
+	 position: absolute;
+	 inset: 0;
+	 border-radius: 50%;
+}
+ .watch .progress > div {
+	 position: absolute;
+	 background: #f85b5b;
+}
+ .watch .progress > div:nth-child(1) {
+	 width: 60%;
+	 left: 50%;
+	 top: 0;
+	 height: 50%;
+	 animation: progress-1 10s linear infinite;
+}
+ .watch .progress > div:nth-child(2) {
+	 width: 50%;
+	 left: 50%;
+	 top: 50%;
+	 height: 0%;
+	 animation: progress-2 10s linear infinite;
+}
+ .watch .progress > div:nth-child(3) {
+	 width: 0;
+	 right: 50%;
+	 top: 50%;
+	 height: 50%;
+	 animation: progress-3 10s linear infinite;
+}
+ .watch .progress > div:nth-child(4) {
+	 width: 50%;
+	 right: 50%;
+	 bottom: 50%;
+	 height: 0%;
+	 animation: progress-4 10s linear infinite;
+}
+ .watch > div:first-child {
+	 position: absolute;
+	 background: #242424;
+	 width: 90%;
+	 aspect-ratio: 1;
+	 border-radius: 50%;
+	 z-index: 1;
+	 box-shadow: 0 0 0 4px #242424;
+}
+ .watch > div:first-child > span {
+	 position: absolute;
+	 width: 100%;
+	 aspect-ratio: 1;
+	 border-radius: 50%;
+}
+ .watch > div:first-child > span > span {
+	 position: absolute;
+	 width: 2px;
+	 height: 2px;
+	 background: #fff;
+	 top: 0px;
+	 left: 50%;
+	 transform: translate(-50%);
+}
+ .watch > div:first-child > span:nth-child(5n) span {
+	 height: 5px;
+	 background: #f85b5b;
+}
+ .watch > div:first-child > span:nth-child(0) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 0));
+}
+ .watch > div:first-child > span:nth-child(1) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 1));
+}
+ .watch > div:first-child > span:nth-child(2) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 2));
+}
+ .watch > div:first-child > span:nth-child(3) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 3));
+}
+ .watch > div:first-child > span:nth-child(4) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 4));
+}
+ .watch > div:first-child > span:nth-child(5) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 5));
+}
+ .watch > div:first-child > span:nth-child(6) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 6));
+}
+ .watch > div:first-child > span:nth-child(7) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 7));
+}
+ .watch > div:first-child > span:nth-child(8) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 8));
+}
+ .watch > div:first-child > span:nth-child(9) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 9));
+}
+ .watch > div:first-child > span:nth-child(10) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 10));
+}
+ .watch > div:first-child > span:nth-child(11) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 11));
+}
+ .watch > div:first-child > span:nth-child(12) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 12));
+}
+ .watch > div:first-child > span:nth-child(13) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 13));
+}
+ .watch > div:first-child > span:nth-child(14) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 14));
+}
+ .watch > div:first-child > span:nth-child(15) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 15));
+}
+ .watch > div:first-child > span:nth-child(16) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 16));
+}
+ .watch > div:first-child > span:nth-child(17) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 17));
+}
+ .watch > div:first-child > span:nth-child(18) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 18));
+}
+ .watch > div:first-child > span:nth-child(19) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 19));
+}
+ .watch > div:first-child > span:nth-child(20) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 20));
+}
+ .watch > div:first-child > span:nth-child(21) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 21));
+}
+ .watch > div:first-child > span:nth-child(22) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 22));
+}
+ .watch > div:first-child > span:nth-child(23) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 23));
+}
+ .watch > div:first-child > span:nth-child(24) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 24));
+}
+ .watch > div:first-child > span:nth-child(25) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 25));
+}
+ .watch > div:first-child > span:nth-child(26) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 26));
+}
+ .watch > div:first-child > span:nth-child(27) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 27));
+}
+ .watch > div:first-child > span:nth-child(28) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 28));
+}
+ .watch > div:first-child > span:nth-child(29) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 29));
+}
+ .watch > div:first-child > span:nth-child(30) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 30));
+}
+ .watch > div:first-child > span:nth-child(31) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 31));
+}
+ .watch > div:first-child > span:nth-child(32) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 32));
+}
+ .watch > div:first-child > span:nth-child(33) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 33));
+}
+ .watch > div:first-child > span:nth-child(34) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 34));
+}
+ .watch > div:first-child > span:nth-child(35) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 35));
+}
+ .watch > div:first-child > span:nth-child(36) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 36));
+}
+ .watch > div:first-child > span:nth-child(37) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 37));
+}
+ .watch > div:first-child > span:nth-child(38) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 38));
+}
+ .watch > div:first-child > span:nth-child(39) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 39));
+}
+ .watch > div:first-child > span:nth-child(40) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 40));
+}
+ .watch > div:first-child > span:nth-child(41) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 41));
+}
+ .watch > div:first-child > span:nth-child(42) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 42));
+}
+ .watch > div:first-child > span:nth-child(43) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 43));
+}
+ .watch > div:first-child > span:nth-child(44) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 44));
+}
+ .watch > div:first-child > span:nth-child(45) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 45));
+}
+ .watch > div:first-child > span:nth-child(46) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 46));
+}
+ .watch > div:first-child > span:nth-child(47) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 47));
+}
+ .watch > div:first-child > span:nth-child(48) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 48));
+}
+ .watch > div:first-child > span:nth-child(49) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 49));
+}
+ .watch > div:first-child > span:nth-child(50) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 50));
+}
+ .watch > div:first-child > span:nth-child(51) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 51));
+}
+ .watch > div:first-child > span:nth-child(52) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 52));
+}
+ .watch > div:first-child > span:nth-child(53) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 53));
+}
+ .watch > div:first-child > span:nth-child(54) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 54));
+}
+ .watch > div:first-child > span:nth-child(55) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 55));
+}
+ .watch > div:first-child > span:nth-child(56) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 56));
+}
+ .watch > div:first-child > span:nth-child(57) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 57));
+}
+ .watch > div:first-child > span:nth-child(58) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 58));
+}
+ .watch > div:first-child > span:nth-child(59) {
+	 transform: rotate(calc(calc(360 / 60) * 1deg * 59));
+}
+ .watch p {
+	 font-size: 11px;
+	 z-index: 10;
+	 text-transform: uppercase;
+	 display: flex;
+	 align-items: center;
+	 gap: 5px;
+}
+ .watch p > span:first-child {
+	 padding-top: 1px;
+	 color: #f85b5b;
+	 animation: beat 0.8s infinite;
+}
+ .watch h2 {
+	 font-size: 30px;
+	 z-index: 10;
+}
+ .watch > div {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 gap: 20px;
+}
+ .circle {
+	 position: absolute;
+	 height: 240px;
+	 width: 240px;
+}
+ .ring {
+	 r: 115px;
+	 cx: 120px;
+	 cy: 120px;
+	 fill: transparent;
+	 stroke-width: 6px;
+	 stroke: #f85b5b;
+	 stroke-dasharray: 725;
+	 transform: rotate(-90deg);
+	 transform-origin: 50% 50%;
+	 animation: spin 5s infinite linear;
+}
+ @keyframes progress-1 {
+	 0% {
+		 width: 0%;
+	}
+	 25% {
+		 width: 50%;
+	}
+	 100% {
+		 width: 50%;
+	}
+}
+ @keyframes progress-2 {
+	 0% {
+		 height: 0%;
+	}
+	 25% {
+		 height: 0%;
+	}
+	 50% {
+		 height: 50%;
+	}
+	 100% {
+		 height: 50%;
+	}
+}
+ @keyframes progress-3 {
+	 0% {
+		 width: 0%;
+	}
+	 50% {
+		 width: 0%;
+	}
+	 75% {
+		 width: 50%;
+	}
+	 100% {
+		 width: 50%;
+	}
+}
+ @keyframes progress-4 {
+	 0% {
+		 height: 0%;
+	}
+	 75% {
+		 height: 0%;
+	}
+	 100% {
+		 height: 50%;
+	}
+}
+ @keyframes spin {
+	 0% {
+		 transform: rotate(-90deg);
+		 stroke-dashoffset: 725;
+	}
+	 50% {
+		 transform: rotate(-90deg);
+		 stroke-dashoffset: 0;
+	}
+	 50.1% {
+		 transform: rotate(-90deg) scaley(-1);
+	}
+	 100% {
+		 transform: rotate(-90deg) scaley(-1);
+		 stroke-dashoffset: 725;
+	}
+}
+ @keyframes beat {
+	 0% {
+		 transform: scale(1);
+	}
+	 100% {
+		 transform: scale(0.8);
+	}
+}
+
+.data{
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.btn-inactive{
+    background-color: white !important; 
+    color: black !important;
+}
+
+.message{
+    display: none;
+    color: white;
+    font-size: 20px;
+}

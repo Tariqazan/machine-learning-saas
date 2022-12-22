@@ -1,0 +1,15 @@
+{% extends '../base.html' %} {% load crispy_forms_tags %} {% load static %} {% block css %}
+<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css"> {% endblock %} {% block header %}
+<h2 style="position: absolute; left: 40%;" class="text-center font-weight-bolder py-2">Add Driver</h2>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="card py-4 mb-3">
+        <form action="" method="post" class="p-5">
+            {{form.errors}} {% csrf_token %} {{form.vehicle|as_crispy_field}} {{form.driver|as_crispy_field}}
+            <label for="">Date*</label>
+            <input type="date" name="fill_date" class="form-control my-3"> {{form.quantity|as_crispy_field}} {{form.odometer|as_crispy_field}} {{form.amount|as_crispy_field}} {{form.comment|as_crispy_field}}
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

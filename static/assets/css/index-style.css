@@ -1,0 +1,144 @@
+body {
+    background-image: url("../images/background/bg-4.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.navigation-section {}
+
+.navbar {
+    background-color: black;
+    left: 60px;
+}
+
+.navbar-brand {
+    width: 150px;
+}
+
+.navbar-brand img {
+    width: 100%;
+}
+.logout{}
+.logout a{
+    color: cyan;
+    text-decoration: none;
+    transition: 0.4s;
+}
+.logout a:hover{
+    color: white;
+}
+.title-section {
+    padding-top: 100px;
+    position: fixed;
+    top: 0;
+    left: 40%;
+}
+
+.title {
+    color: white;
+}
+
+.title h1 {}
+
+.factory-section {
+    padding-top: 100px;
+}
+
+.factory-card {
+    position: relative;
+    margin-bottom: 60px;
+}
+.factory-img {
+    width: 100%;
+    position: relative;
+}
+
+.factory-img img {
+    margin: 15% 26%;
+    width: 45%;
+}
+
+.overlay-text {
+    position: absolute;
+    color: transparent;
+    /* background-color: #000000bf; */
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: 100%;
+    padding: 60px 20px;
+}
+.overlay-text h1{
+    width: 100%;
+    position: absolute;
+    background: #000000bf;
+    padding: 5px 0;
+    padding-left: 83px;
+    top: 100px;
+    left: 30px;
+    font-size: 25px;
+    color: white;
+}
+.overlay-text p {
+    margin-bottom: 4px;
+}
+
+.data-name {
+    margin-left: 40px;
+    width: 160px;
+}
+
+.data-name i {
+    width: 30px;
+    text-align: center;
+}
+
+.data-value {}
+
+.factory-link{
+    text-align: center;
+}
+.monitor, .control{
+    padding: 0;
+}
+.monitor a, .control a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid;
+    font-weight: 700;
+    padding: 10px 53px;
+    transition: 0.4s;
+}
+.monitor{
+}
+.monitor a{
+    background: rgb(0, 0, 0);
+    border-color: white;
+}
+.monitor a:hover{
+    color: cyan;
+    border-color: cyan;
+    background-color: transparent;
+}
+.control{
+    color: #858585;
+    border-color: #858585;
+}
+.control a{
+    background: #252525bf;
+}
+.control a:hover{
+    color: #464646;
+    border-color: #464646;
+    background-color: transparent;
+    text-decoration: strikethrough;
+}

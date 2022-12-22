@@ -1,0 +1,100 @@
+{% extends '../base.html' %} {% load static %}
+{% block css %}
+<style>
+    .vl {
+      border-left: 3px solid rgb(0, 0, 0);
+      height: 500px;
+    }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <p class="text-center h2">Activity Logs</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div>
+                        <input type="checkbox" name="" id="" value="user">
+                        <label for="" class="h5">User</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" name="" id="" value="device">
+                        <label for="" class="h5">Device</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" name="" id="" value="alert">
+                        <label for="" class="h5">Alerts</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" name="" id="" value="tracing">
+                        <label for="" class="h5">Tracing</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" name="" id="" value="error_tracing">
+                        <label for="" class="h5">Error Tracing</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" name="" id="" value="incident">
+                        <label for="" class="h5">Incident</label>
+                    </div>
+                    <hr>
+                </div>
+                <div class="vl"></div>
+                <div class="col-md-8">
+                    <div id="user">
+                        {% for i in users %}
+                        <p class="h5"><strong>User created:</strong> On {{i.date}} an user was created in the name of
+                            <b>{{i.first_name}} {{i.last_name}}</b> device is <b>{{i.device.model}}</b>
+                        </p>
+                        <hr>
+                        {% endfor %}
+                    </div>
+                    <div id="device">
+                        {% for i in devices %}
+                        <p class="h5"><strong>Device added:</strong> On {{i.date}} a device was created model is
+                            <b>{{i.model}}</b>
+                        </p>
+                        <hr>
+                        {% endfor %}
+                    </div>
+                    <div id="alert">
+                        <p class="h5">No alerts</p>
+                        <hr>
+                    </div>
+                    <div id="tracing">
+                        <p class="h5">No tracing data</p>
+                        <hr>
+                    </div>
+                    <div id="error_tracing">
+                        <p class="h5">No error tracing data</p>
+                        <hr>
+                    </div>
+                    <div id="incident">
+                        <p class="h5">No incidents</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type="checkbox"]').click(function () {
+            var inputValue = $(this).attr("value");
+            $("#" + inputValue).toggle();
+
+        });
+    });
+</script>
+{% endblock %}
